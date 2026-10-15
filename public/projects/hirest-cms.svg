@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" width="100%" height="100%">
+  <defs>
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Dashboard Container Background -->
+  <rect width="920" height="540" fill="#f8fafc" />
+
+  <!-- TOP HEADER / STEP PROGRESS -->
+  <rect x="0" y="0" width="920" height="60" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  
+  <!-- Step 1 -->
+  <g transform="translate(30, 15)">
+    <circle cx="15" cy="15" r="14" fill="#00a896" />
+    <text x="15" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="36" y="14" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#00a896">STEP 1</text>
+    <text x="36" y="25" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b">Pick a room</text>
+    <!-- Connector line -->
+    <line x1="100" y1="15" x2="120" y2="15" stroke="#cbd5e1" stroke-width="1" />
+  </g>
+
+  <!-- Step 2 -->
+  <g transform="translate(155, 15)">
+    <circle cx="15" cy="15" r="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="15" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">2</text>
+    <line x1="38" y1="15" x2="58" y2="15" stroke="#cbd5e1" stroke-width="1" />
+  </g>
+
+  <!-- Step 3 -->
+  <g transform="translate(220, 15)">
+    <circle cx="15" cy="15" r="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="15" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" fill="#94a3b8" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Time Policy Badges -->
+  <g font-family="'Segoe UI', Roboto, sans-serif" font-size="9" fill="#64748b" transform="translate(320, 24)">
+    <text x="0" y="0">Early Check In : <tspan font-weight="600" fill="#334155">09:00 - 14:00</tspan></text>
+    <text x="120" y="0">Late Check Out : <tspan font-weight="600" fill="#334155">12:00 - 13:00</tspan></text>
+    <text x="245" y="0">Check In : <tspan font-weight="600" fill="#334155">14:00</tspan></text>
+    <text x="330" y="0">Check Out : <tspan font-weight="600" fill="#334155">12:00</tspan></text>
+  </g>
+
+  <!-- Days View Button -->
+  <rect x="790" y="15" width="105" height="30" rx="3" fill="#64748b" />
+  <text x="842" y="34" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">
+    ☷ DAYS VIEW
+  </text>
+
+  <!-- STATS CARDS BAR -->
+  <g transform="translate(20, 75)">
+    <!-- Vacant Card -->
+    <rect x="0" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="0" y="0" width="4" height="64" rx="2" fill="#0ea5e9" />
+    <text x="12" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">VACANT</text>
+    <text x="106" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">619</text>
+
+    <!-- Occupied Card -->
+    <rect x="126" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="126" y="0" width="4" height="64" rx="2" fill="#00a896" />
+    <text x="138" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">OCCUPIED</text>
+    <text x="232" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">0</text>
+
+    <!-- Tentative Card -->
+    <rect x="252" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="252" y="0" width="4" height="64" rx="2" fill="#3b82f6" />
+    <text x="264" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold" fill="#64748b">TENTATIVE RSV</text>
+    <text x="358" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">0</text>
+
+    <!-- Out of Order Card -->
+    <rect x="378" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="378" y="0" width="4" height="64" rx="2" fill="#f43f5e" />
+    <text x="390" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">OUT OF ORDER</text>
+    <text x="484" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">0</text>
+
+    <!-- Guaranteed Card -->
+    <rect x="504" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="504" y="0" width="4" height="64" rx="2" fill="#10b981" />
+    <text x="516" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#64748b">GUARANTEED RSV</text>
+    <text x="610" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">1</text>
+
+    <!-- Due Out Card -->
+    <rect x="630" y="0" width="118" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="630" y="0" width="4" height="64" rx="2" fill="#f59e0b" />
+    <text x="642" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="bold" fill="#64748b">DUE OUT RSV</text>
+    <text x="736" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">0</text>
+
+    <!-- Room Cleaning Card -->
+    <rect x="756" y="0" width="124" height="64" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="url(#card-shadow)" />
+    <rect x="756" y="0" width="4" height="64" rx="2" fill="#f97316" />
+    <text x="768" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="bold" fill="#64748b">ROOM CLEANING</text>
+    <text x="866" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="end">31</text>
+  </g>
+
+  <!-- DATE NAVIGATION & FILTERS -->
+  <g transform="translate(20, 155)">
+    <!-- Previous & Next Chevron -->
+    <text x="30" y="20" font-family="'Segoe UI', sans-serif" font-size="18" fill="#94a3b8" cursor="pointer">&lt;</text>
+    <text x="860" y="20" font-family="'Segoe UI', sans-serif" font-size="18" fill="#94a3b8" cursor="pointer">&gt;</text>
+
+    <!-- Date range title -->
+    <text x="440" y="19" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">
+      &lt;   1 February 2019 - 3 March 2019   &gt;
+    </text>
+
+    <!-- Filter dropdowns -->
+    <text x="10" y="48" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">ALL BUILDING ▾</text>
+    <text x="100" y="48" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">ALL TYPE ▾</text>
+    <text x="840" y="48" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="bold" fill="#64748b">RESET</text>
+  </g>
+
+  <!-- CALENDAR / ROOM OCCUPANCY MATRIX TABLE -->
+  <g transform="translate(20, 220)">
+    <!-- Header Row -->
+    <rect x="0" y="0" width="880" height="28" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#334155">ROOMS</text>
+    
+    <!-- Dates numbers 1 to 28, 1, 2, 3 -->
+    <g font-family="'Segoe UI', Roboto, sans-serif" font-size="9" fill="#475569" text-anchor="middle">
+      <text x="100" y="18">1</text><text x="125" y="18">2</text><text x="150" y="18">3</text><text x="175" y="18">4</text>
+      <text x="200" y="18">5</text><text x="225" y="18">6</text><text x="250" y="18">7</text><text x="275" y="18">8</text>
+      <text x="300" y="18">9</text><text x="325" y="18">10</text><text x="350" y="18">11</text><text x="375" y="18">12</text>
+      <text x="400" y="18">13</text><text x="425" y="18">14</text><text x="450" y="18">15</text><text x="475" y="18">16</text>
+      <text x="500" y="18">17</text><text x="525" y="18">18</text><text x="550" y="18">19</text><text x="575" y="18">20</text>
+      <text x="600" y="18">21</text><text x="625" y="18">22</text><text x="650" y="18">23</text><text x="675" y="18">24</text>
+      <text x="700" y="18">25</text><text x="725" y="18">26</text><text x="750" y="18">27</text><text x="775" y="18">28</text>
+      <text x="800" y="18">1</text><text x="825" y="18">2</text><text x="850" y="18">3</text>
+    </g>
+
+    <!-- Subheader: Gedung 113 -->
+    <rect x="0" y="28" width="880" height="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+    <text x="12" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#334155">Gedung 113</text>
+
+    <!-- Subheader: Deluxe, Floor 1 -->
+    <rect x="0" y="52" width="880" height="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="24" y="68" font-family="'Segoe UI', Roboto, sans-serif" font-size="9" font-style="italic" fill="#64748b">Deluxe • Floor 1</text>
+
+    <!-- Room Row 101 -->
+    <rect x="0" y="76" width="880" height="32" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="24" y="96" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#334155">101</text>
+    <circle cx="50" cy="93" r="5" fill="#0ea5e9" />
+
+    <!-- Grid cell lines -->
+    <line x1="88" y1="76" x2="88" y2="108" stroke="#f1f5f9" />
+    <!-- Cell 3 selection indicator -->
+    <rect x="138" y="78" width="23" height="28" fill="#e0f2fe" rx="2" />
+    <path d="M 144,92 L 148,97 L 157,87" fill="none" stroke="#0284c7" stroke-width="2" />
+
+    <!-- Room Row 102 -->
+    <rect x="0" y="108" width="880" height="32" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="24" y="128" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#334155">102</text>
+    <!-- Ribbon badge -->
+    <circle cx="50" cy="125" r="5" fill="#10b981" />
+    <polygon points="48,128 50,133 52,128" fill="#10b981" />
+
+    <!-- Horizontal scroll bar representation -->
+    <rect x="360" y="146" width="160" height="4" rx="2" fill="#94a3b8" />
+  </g>
+
+  <!-- DASHBOARD ACTION BUTTONS & DEVELOPED BY FOOTER -->
+  <g transform="translate(20, 475)">
+    <!-- Developed By Telkom Sigma -->
+    <text x="440" y="42" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-style="italic" fill="#94a3b8" text-anchor="middle">
+      Developed by Telkom Sigma
+    </text>
+
+    <!-- Action Buttons matching screenshot 3 -->
+    <g transform="translate(680, 0)">
+      <rect x="0" y="0" width="86" height="32" rx="4" fill="#00a896" />
+      <text x="43" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        Reserve
+      </text>
+
+      <rect x="96" y="0" width="104" height="32" rx="4" fill="#00a896" />
+      <text x="148" y="20" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">
+        Update Status
+      </text>
+    </g>
+  </g>
+</svg>

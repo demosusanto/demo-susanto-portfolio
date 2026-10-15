@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 630" width="100%" height="100%">
+  <defs>
+    <filter id="shadow-movus" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="630" fill="#f5f7fa" />
+
+  <rect x="25" y="25" width="850" height="580" fill="#ffffff" stroke="#2563eb" stroke-width="4" rx="2" />
+  <rect x="35" y="35" width="830" height="560" fill="#ffffff" stroke="#0f172a" stroke-width="1.5" />
+  <rect x="42" y="42" width="816" height="546" fill="none" stroke="#e2e8f0" stroke-width="1" />
+
+  <!-- Side Ribbons (Movus Blue & Indigo) -->
+  <g fill="#2563eb">
+    <polygon points="50,42 90,42 90,260 70,240 50,260" filter="url(#shadow-movus)" />
+    <polygon points="50,588 90,588 90,370 70,390 50,370" filter="url(#shadow-movus)" />
+    <polygon points="850,42 810,42 810,260 830,240 850,260" filter="url(#shadow-movus)" />
+    <polygon points="850,588 810,588 810,370 830,390 850,370" filter="url(#shadow-movus)" />
+  </g>
+
+  <!-- Movus Logo / Heading -->
+  <g transform="translate(450, 95)" text-anchor="middle">
+    <circle cx="0" cy="0" r="26" fill="#0f172a" />
+    <text x="0" y="8" font-family="'Arial Black', sans-serif" font-size="20" font-weight="900" fill="#38bdf8">
+      M
+    </text>
+    <text x="0" y="42" font-family="'Arial Black', sans-serif" font-size="16" font-weight="900" fill="#0f172a" letter-spacing="2">
+      MOVUS TECHNOLOGIES
+    </text>
+    <text x="0" y="56" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="1">
+      INNOVATION IN MOBILITY &amp; FINTECH
+    </text>
+  </g>
+
+  <g text-anchor="middle">
+    <text x="450" y="190" font-family="'Times New Roman', Georgia, serif" font-size="32" font-weight="bold" fill="#0f172a" letter-spacing="1.5">
+      PRODUCT DESIGN &amp; FRONTEND EXCELLENCE
+    </text>
+    <text x="450" y="218" font-family="'Segoe UI', Roboto, sans-serif" font-size="14.5" fill="#64748b">
+      Awarded with honor and distinction to:
+    </text>
+
+    <!-- Name -->
+    <text x="450" y="265" font-family="'Times New Roman', Georgia, serif" font-size="30" font-weight="bold" fill="#2563eb">
+      Demo Susanto
+    </text>
+
+    <!-- Role -->
+    <text x="450" y="295" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#0f172a">
+      UI/UX Designer &amp; Frontend Developer
+    </text>
+
+    <text x="450" y="335" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" fill="#334155">
+      For outstanding leadership in crafting the Movus Design System, elevating user experience across web and mobile platforms,
+    </text>
+    <text x="450" y="358" font-family="'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="bold" fill="#2563eb">
+      Revamping the Mo-Vus Platform &amp; Driver Onboarding Ecosystem
+    </text>
+    <text x="450" y="380" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" fill="#334155">
+      delivering measurable impact in customer conversion, usability metrics, and frontend responsiveness.
+    </text>
+
+    <text x="450" y="420" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-style="italic" fill="#64748b">
+      Jakarta, September 2025
+    </text>
+  </g>
+
+  <g transform="translate(0, 440)">
+    <g transform="translate(240, 0)" text-anchor="middle">
+      <path d="M -50,25 Q -20,-5 0,30 T 30,10 Q 60,35 75,20" fill="none" stroke="#0f172a" stroke-width="2" />
+      <line x1="-80" y1="50" x2="80" y2="50" stroke="#cbd5e1" stroke-width="1" />
+      <text x="0" y="68" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">
+        Chief Product Officer
+      </text>
+      <text x="0" y="85" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">
+        Movus Technologies
+      </text>
+    </g>
+
+    <g transform="translate(450, 30)" text-anchor="middle">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.85" stroke-dasharray="4,2" />
+      <text x="0" y="-3" font-family="'Arial', sans-serif" font-size="9" font-weight="bold" fill="#2563eb">MOVUS</text>
+      <text x="0" y="10" font-family="'Arial Black', sans-serif" font-size="11" font-weight="bold" fill="#2563eb">HONORS</text>
+    </g>
+
+    <g transform="translate(660, 0)" text-anchor="middle">
+      <path d="M -45,30 Q -15,-10 10,25 T 45,5 Q 65,30 85,15" fill="none" stroke="#0f172a" stroke-width="2" />
+      <line x1="-80" y1="50" x2="80" y2="50" stroke="#cbd5e1" stroke-width="1" />
+      <text x="0" y="68" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">
+        Head of Engineering
+      </text>
+      <text x="0" y="85" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">
+        Platform Operations
+      </text>
+    </g>
+  </g>
+</svg>

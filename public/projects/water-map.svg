@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" width="100%" height="100%">
+  <rect width="920" height="540" fill="#f0f9ff" />
+  <!-- Header -->
+  <rect x="0" y="0" width="920" height="60" fill="#0369a1" />
+  <circle cx="40" cy="30" r="14" fill="#38bdf8" />
+  <text x="40" y="35" font-family="'Arial Black', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">W</text>
+  <text x="65" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">GIS Smart Water Sensing Map &amp; Alert Geofences</text>
+  <text x="470" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#bae6fd">| Spatial IoT Telemetry Nodes</text>
+
+  <!-- Left Side: Map Simulation with Water Nodes -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="560" height="380" rx="8" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1" />
+    
+    <!-- River / Water Canal Simulation -->
+    <path d="M 0,160 C 120,120 200,260 320,180 S 440,240 560,190" fill="none" stroke="#38bdf8" stroke-width="36" opacity="0.6" />
+    <path d="M 0,160 C 120,120 200,260 320,180 S 440,240 560,190" fill="none" stroke="#0284c7" stroke-width="8" />
+
+    <!-- Sensor Station Node 1 -->
+    <g transform="translate(140, 140)">
+      <circle cx="0" cy="0" r="14" fill="#0284c7" />
+      <circle cx="0" cy="0" r="6" fill="#ffffff" />
+      <rect x="18" y="-12" width="130" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <text x="25" y="2" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="bold" fill="#0369a1">Node A1 - Bendungan</text>
+      <text x="25" y="14" font-family="'Segoe UI', sans-serif" font-size="8" fill="#16a34a">Water Depth: 4.2m (Normal)</text>
+    </g>
+
+    <!-- Sensor Station Node 2 -->
+    <g transform="translate(310, 200)">
+      <circle cx="0" cy="0" r="14" fill="#0284c7" />
+      <circle cx="0" cy="0" r="6" fill="#ffffff" />
+      <rect x="18" y="-12" width="130" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <text x="25" y="2" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="bold" fill="#0369a1">Node B2 - Kanal Barat</text>
+      <text x="25" y="14" font-family="'Segoe UI', sans-serif" font-size="8" fill="#16a34a">Turbidity: 2.3 NTU (Clear)</text>
+    </g>
+
+    <!-- Sensor Station Node 3 -->
+    <g transform="translate(460, 200)">
+      <circle cx="0" cy="0" r="14" fill="#0284c7" />
+      <circle cx="0" cy="0" r="6" fill="#ffffff" />
+      <rect x="18" y="-12" width="130" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+      <text x="25" y="2" font-family="'Segoe UI', sans-serif" font-size="9" font-weight="bold" fill="#0369a1">Node C1 - Muara Hilir</text>
+      <text x="25" y="14" font-family="'Segoe UI', sans-serif" font-size="8" fill="#16a34a">Salinity: 0.05 ppt</text>
+    </g>
+  </g>
+
+  <!-- Right Side Telemetry Feed -->
+  <g transform="translate(610, 80)">
+    <rect x="0" y="0" width="280" height="380" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#0369a1">Real-time Node Status</text>
+    
+    <g transform="translate(20, 60)" font-family="'Segoe UI', sans-serif" font-size="11" fill="#334155">
+      <text x="0" y="20">Aktif Online : <tspan font-weight="bold" fill="#16a34a">100% (128/128)</tspan></text>
+      <text x="0" y="45">Rata-rata Latensi : <tspan font-weight="bold" fill="#0284c7">48 ms</tspan></text>
+      <text x="0" y="70">Protokol : <tspan font-weight="bold">MQTT over TLS</tspan></text>
+
+      <line x1="0" y1="90" x2="240" y2="90" stroke="#f1f5f9" stroke-width="1" />
+
+      <text x="0" y="115" font-weight="bold" fill="#0369a1">Ambang Batas Alarm (Threshold)</text>
+      <text x="0" y="140">• Level Siaga 3 : 5.0 Meter</text>
+      <text x="0" y="165">• Level Siaga 2 : 6.5 Meter</text>
+      <text x="0" y="190">• Level Siaga 1 : 8.0 Meter</text>
+
+      <rect x="0" y="220" width="240" height="38" rx="4" fill="#0284c7" />
+      <text x="120" y="244" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">DOWNLOAD TELEMETRY CSV</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="460" y="505" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0284c7" text-anchor="middle">
+    Detection Water App CMS • Slide 2 of 2
+  </text>
+</svg>

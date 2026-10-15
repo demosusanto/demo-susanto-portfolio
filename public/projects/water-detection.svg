@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" width="100%" height="100%">
+  <rect width="920" height="540" fill="#f0f9ff" />
+  <!-- Header -->
+  <rect x="0" y="0" width="920" height="60" fill="#0369a1" />
+  <circle cx="40" cy="30" r="14" fill="#38bdf8" />
+  <text x="40" y="35" font-family="'Arial Black', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">W</text>
+  <text x="65" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Detection Water App — CMS Dashboard</text>
+  <text x="390" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#bae6fd">| IoT Telemetry &amp; Water Quality Monitoring</text>
+
+  <!-- Metric KPI Cards -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="200" height="85" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="16" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0369a1">TOTAL SENSOR NODES</text>
+    <text x="16" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#0284c7">128 Active</text>
+
+    <rect x="220" y="0" width="200" height="85" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="236" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0369a1">AVG WATER PH LEVEL</text>
+    <text x="236" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#059669">7.3 pH (Optimal)</text>
+
+    <rect x="440" y="0" width="200" height="85" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="456" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0369a1">WATER TURBIDITY (NTU)</text>
+    <text x="456" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#0ea5e9">2.1 NTU (Clear)</text>
+
+    <rect x="660" y="0" width="200" height="85" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="676" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0369a1">FLOOD / LEAK WARNINGS</text>
+    <text x="676" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#16a34a">0 Active Alerts</text>
+  </g>
+
+  <!-- Telemetry Sensor Line Chart -->
+  <g transform="translate(30, 185)">
+    <rect x="0" y="0" width="560" height="280" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#0369a1">24-Hour Water Level &amp; Flow Sensor Stream</text>
+    
+    <line x1="20" y1="70" x2="530" y2="70" stroke="#f1f5f9" stroke-width="1" />
+    <line x1="20" y1="120" x2="530" y2="120" stroke="#f1f5f9" stroke-width="1" />
+    <line x1="20" y1="170" x2="530" y2="170" stroke="#f1f5f9" stroke-width="1" />
+    <line x1="20" y1="220" x2="530" y2="220" stroke="#f1f5f9" stroke-width="1" />
+
+    <path d="M 30,190 Q 100,120 180,140 T 320,110 T 440,160 T 520,130" fill="none" stroke="#0284c7" stroke-width="3" />
+    <path d="M 30,220 Q 100,170 180,180 T 320,150 T 440,200 T 520,170" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,2" />
+
+    <text x="30" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">Sensor Alpha (Reservoir)</text>
+    <text x="230" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">Sensor Beta (Pumping Hub)</text>
+    <text x="430" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">Flow Velocity: 1.8 m/s</text>
+  </g>
+
+  <!-- Right Side Device Nodes Status -->
+  <g transform="translate(610, 185)">
+    <rect x="0" y="0" width="280" height="280" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#0369a1">Hardware Telemetry Hub</text>
+
+    <g transform="translate(20, 60)" font-family="'Segoe UI', sans-serif" font-size="11" fill="#334155">
+      <rect x="0" y="0" width="240" height="40" rx="4" fill="#f0f9ff" />
+      <text x="15" y="24" font-weight="bold">Gateway Node 01</text>
+      <text x="180" y="24" fill="#16a34a" font-weight="bold">ONLINE</text>
+
+      <rect x="0" y="50" width="240" height="40" rx="4" fill="#f0f9ff" />
+      <text x="15" y="74" font-weight="bold">Gateway Node 02</text>
+      <text x="180" y="74" fill="#16a34a" font-weight="bold">ONLINE</text>
+
+      <rect x="0" y="100" width="240" height="40" rx="4" fill="#f0f9ff" />
+      <text x="15" y="124" font-weight="bold">Submersible Probe</text>
+      <text x="180" y="124" fill="#16a34a" font-weight="bold">ONLINE</text>
+
+      <rect x="0" y="150" width="240" height="40" rx="4" fill="#f0f9ff" />
+      <text x="15" y="174" font-weight="bold">Battery Health (Solar)</text>
+      <text x="195" y="174" fill="#0284c7" font-weight="bold">98%</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <text x="460" y="505" font-family="'Segoe UI', sans-serif" font-size="11" fill="#0284c7" text-anchor="middle">
+    Smart IoT Water Telemetry Monitoring Platform
+  </text>
+</svg>

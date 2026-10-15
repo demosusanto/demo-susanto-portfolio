@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" width="100%" height="100%">
+  <rect width="920" height="540" fill="#f0fdf4" />
+  <!-- Header -->
+  <rect x="0" y="0" width="920" height="60" fill="#15803d" />
+  <circle cx="40" cy="30" r="14" fill="#fbbf24" />
+  <text x="40" y="35" font-family="'Arial Black', sans-serif" font-size="12" font-weight="900" fill="#15803d" text-anchor="middle">P</text>
+  <text x="65" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Pegadaian Customer Digital Gold Portal</text>
+  <text x="380" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#bbf7d0">| Tabungan Emas &amp; Gadai Online</text>
+
+  <!-- Left Customer Wallet Card -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="560" height="380" rx="8" fill="#ffffff" stroke="#bbf7d0" stroke-width="1" />
+    <rect x="0" y="0" width="560" height="45" rx="8" fill="#f0fdf4" />
+    <text x="20" y="28" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#166534">Portofolio Tabungan Emas • No. Rekening: #0019-8821-4401</text>
+    
+    <g transform="translate(20, 70)" font-family="'Segoe UI', sans-serif" font-size="11" fill="#475569">
+      <text x="0" y="20">Saldo Tabungan Emas : <tspan font-size="16" font-weight="bold" fill="#b45309">48.2500 Gram</tspan></text>
+      <text x="320" y="20">Estimasi Nilai : <tspan font-size="16" font-weight="bold" fill="#15803d">Rp 52.833.750</tspan></text>
+
+      <line x1="0" y1="50" x2="520" y2="50" stroke="#dcfce7" stroke-width="1" />
+
+      <!-- Buy / Sell Actions -->
+      <g transform="translate(0, 70)">
+        <rect x="0" y="0" width="160" height="85" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
+        <text x="16" y="26" font-size="10" font-weight="bold" fill="#166534">HARGA BELI EMAS</text>
+        <text x="16" y="55" font-size="18" font-weight="bold" fill="#15803d">Rp 1.095.000 <tspan font-size="10" font-weight="normal">/gr</tspan></text>
+        <text x="16" y="72" font-size="9" fill="#16a34a">▲ +Rp 4.000 hari ini</text>
+
+        <rect x="180" y="0" width="160" height="85" rx="6" fill="#fefce8" stroke="#fde047" stroke-width="1" />
+        <text x="196" y="26" font-size="10" font-weight="bold" fill="#854d0e">HARGA JUAL (BUYBACK)</text>
+        <text x="196" y="55" font-size="18" font-weight="bold" fill="#ca8a04">Rp 1.032.000 <tspan font-size="10" font-weight="normal">/gr</tspan></text>
+        <text x="196" y="72" font-size="9" fill="#ca8a04">Stabil 24 Jam</text>
+
+        <rect x="360" y="0" width="160" height="85" rx="6" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1" />
+        <text x="376" y="26" font-size="10" font-weight="bold" fill="#0369a1">PLAFON GADAI EMAS</text>
+        <text x="376" y="55" font-size="18" font-weight="bold" fill="#0284c7">Rp 44.900.000</text>
+        <text x="376" y="72" font-size="9" fill="#0284c7">Tersedia Cair Cepat</text>
+      </g>
+
+      <!-- Transaction History -->
+      <g transform="translate(0, 185)">
+        <text x="0" y="0" font-weight="bold" fill="#166534">Riwayat Transaksi Terakhir</text>
+        <text x="0" y="25">12 Feb 2026 • Pembelian Emas Berkala (Auto-Debet)</text><text x="420" y="25" font-weight="bold" fill="#15803d">+1.5000 gr</text>
+        <text x="0" y="50">02 Jan 2026 • Cetak Emas Fisik Antam 10gr</text><text x="420" y="50" font-weight="bold" fill="#dc2626">-10.000 gr</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Side Gold Price Trend -->
+  <g transform="translate(610, 80)">
+    <rect x="0" y="0" width="280" height="380" rx="8" fill="#ffffff" stroke="#bbf7d0" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#166534">Tren Harga Emas (30 Hari)</text>
+    
+    <!-- Price Chart -->
+    <path d="M 20,230 Q 70,190 120,210 T 200,160 T 260,130" fill="none" stroke="#15803d" stroke-width="3" />
+    <circle cx="260" cy="130" r="5" fill="#eab308" />
+
+    <text x="20" y="270" font-size="10" fill="#64748b">Harga terus mengalami apresiasi +4.2%</text>
+    <rect x="20" y="295" width="240" height="36" rx="4" fill="#15803d" />
+    <text x="140" y="318" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">BELI TABUNGAN EMAS</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="460" y="505" font-family="'Segoe UI', sans-serif" font-size="11" fill="#166534" text-anchor="middle">
+    PT Pegadaian (Persero) • Slide 2 of 2
+  </text>
+</svg>

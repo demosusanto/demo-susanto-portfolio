@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" width="100%" height="100%">
+  <rect width="920" height="540" fill="#0f172a" />
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="920" height="60" fill="#1e293b" />
+  <text x="30" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#38bdf8">BroFIST &amp; NSAM Tools</text>
+  <text x="235" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" fill="#94a3b8">| Telkomsel Network Security &amp; Access Monitoring Portal</text>
+  <rect x="790" y="15" width="100" height="30" rx="4" fill="#0284c7" />
+  <text x="840" y="34" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LIVE TRAFFIC</text>
+
+  <!-- Metric KPI Cards -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="200" height="85" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="16" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">MONITORED MSISDN</text>
+    <text x="16" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#38bdf8">14.2M</text>
+
+    <rect x="220" y="0" width="200" height="85" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="236" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">DPI FRAUD TRAFFIC</text>
+    <text x="236" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#f43f5e">0.04%</text>
+
+    <rect x="440" y="0" width="200" height="85" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="456" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">ACTIVE MODEM POOLS</text>
+    <text x="456" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#10b981">8,412</text>
+
+    <rect x="660" y="0" width="200" height="85" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="676" y="28" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">PEN-TEST SEC SCORE</text>
+    <text x="676" y="62" font-family="'Segoe UI', sans-serif" font-size="26" font-weight="bold" fill="#a855f7">99.4%</text>
+  </g>
+
+  <!-- Big Line Chart (DPI Fraud Traffic Trends) -->
+  <g transform="translate(30, 185)">
+    <rect x="0" y="0" width="550" height="280" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#e2e8f0">Trend DPI Fraud &amp; Anomaly Detection</text>
+    
+    <!-- Grid lines -->
+    <line x1="20" y1="70" x2="520" y2="70" stroke="#334155" stroke-dasharray="3,3" />
+    <line x1="20" y1="120" x2="520" y2="120" stroke="#334155" stroke-dasharray="3,3" />
+    <line x1="20" y1="170" x2="520" y2="170" stroke="#334155" stroke-dasharray="3,3" />
+    <line x1="20" y1="220" x2="520" y2="220" stroke="#334155" stroke-dasharray="3,3" />
+
+    <!-- Wave/Path -->
+    <path d="M 30,210 Q 90,160 150,190 T 270,120 T 390,150 T 510,90" fill="none" stroke="#0ea5e9" stroke-width="3" />
+    <path d="M 30,230 Q 90,210 150,225 T 270,180 T 390,210 T 510,160" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="4,2" />
+    
+    <text x="30" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">00:00</text>
+    <text x="150" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">06:00</text>
+    <text x="270" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">12:00</text>
+    <text x="390" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">18:00</text>
+    <text x="500" y="255" font-family="'Segoe UI', sans-serif" font-size="10" fill="#64748b">23:59</text>
+  </g>
+
+  <!-- Right Side Donut / Penetration Status -->
+  <g transform="translate(600, 185)">
+    <rect x="0" y="0" width="290" height="280" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+    <text x="20" y="30" font-family="'Segoe UI', sans-serif" font-size="13" font-weight="bold" fill="#e2e8f0">Security &amp; Quotas Status</text>
+    
+    <!-- Circle gauge -->
+    <circle cx="145" cy="130" r="60" fill="none" stroke="#334155" stroke-width="16" />
+    <circle cx="145" cy="130" r="60" fill="none" stroke="#10b981" stroke-width="16" stroke-dasharray="320, 100" transform="rotate(-90 145 130)" />
+    <text x="145" y="136" font-family="'Segoe UI', sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">94%</text>
+
+    <text x="25" y="220" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">✓ Penetration Testing Passed</text>
+    <text x="25" y="242" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94a3b8">✓ Modem Traffic Encryption Active</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="460" y="505" font-family="'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">
+    PT Telekomunikasi Selular • Network Security Division
+  </text>
+</svg>
