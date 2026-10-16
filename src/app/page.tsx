@@ -61,6 +61,79 @@ function RevealOnScroll({
   );
 }
 
+function ProjectSlider({ images = [], altText }: { images: string[]; altText: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  useEffect(() => {
+    if (!images || images.length <= 1) return;
+    if (isHovered) return;
+
+    const slideInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(slideInterval);
+  }, [images?.length, isHovered]);
+
+  return (
+    <div
+      className="relative h-full w-full group bg-transparent"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="relative h-full w-full overflow-hidden rounded-[4px] bg-transparent">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+          >
+            <Image
+              src={img}
+              alt={`${altText} - Slide ${idx + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 700px"
+              /* PERUBAHAN UTAMA DI SINI UNTUK MOBILE */
+              className="object-cover md:object-contain transition-all duration-500 ease-in-out
+                /* Mobile: Opacity sangat rendah (10%), grayscale penuh, dan redup agar teks di depannya kontras */
+                opacity-10 grayscale brightness-50 mix-blend-screen
+                /* Desktop Awal: Opacity 100%, grayscale, multiply ke background teal */
+                md:opacity-100 md:grayscale md:brightness-90 md:mix-blend-multiply
+                /* Desktop Hover: Kembali normal */
+                md:group-hover:grayscale-0 md:group-hover:brightness-100 md:group-hover:mix-blend-normal"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Titik Indikator: Disembunyikan di Mobile, Tampil di Desktop */}
+      {images.length > 1 && (
+        <div className="absolute bottom-4 left-0 right-0 z-20 hidden md:flex justify-center gap-2.5">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={(e) => {
+                e.preventDefault();
+                goToSlide(idx);
+              }}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2.5 rounded-full transition-all duration-300 shadow-[0_0_4px_rgba(0,0,0,0.8)] border ${idx === currentIndex
+                  ? "bg-[#64ffda] border-[#64ffda] w-6"
+                  : "bg-[#0a192f]/90 border-[#64ffda]/50 hover:bg-[#64ffda]/60 w-2.5"
+                }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function BrittanyV4Portfolio() {
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
@@ -506,7 +579,7 @@ export default function BrittanyV4Portfolio() {
                 <p>
                   Hello! My name is Demo Susanto and I enjoy creating things
                   that live on the internet. My journey in Information
-                  Technology spans over 7 years, including 6 years and 5 months
+                  Technology spans over 8 years, including 7 years
                   as a{" "}
                   <span className="text-[#64ffda]">Frontend Developer</span> and
                   hands-on experience as a{" "}
@@ -515,14 +588,14 @@ export default function BrittanyV4Portfolio() {
                 </p>
                 <p>
                   Fast-forward to today, and I’ve had the privilege of building
-                  and designing digital products across{" "}
+                  and designing digital products ranging from{" "}
                   <a
-                    href="https://mo-vus.com"
+                    href="https://catatuang.sikluswaktu.my.id/"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#64ffda] hover:underline"
                   >
-                    a mobility startup (Movus)
+                    a personal finance application (Catat Uang)
                   </a>
                   ,{" "}
                   <a
@@ -540,7 +613,7 @@ export default function BrittanyV4Portfolio() {
                     rel="noreferrer"
                     className="text-[#64ffda] hover:underline"
                   >
-                    banking data divisions (BNI)
+                    Data Management & Analytics (DMA) division at (BNI)
                   </a>
                   . I hold a Bachelor&apos;s Degree in Informatics Engineering
                   from Pamulang University (2018–2022) and a BNSP Programmer
@@ -551,13 +624,12 @@ export default function BrittanyV4Portfolio() {
                 </p>
 
                 <ul className="mt-5 grid grid-cols-2 gap-x-3 gap-y-2 p-0 list-none font-mono text-xs sm:text-sm">
-                  {personalInfo.recentSkills.map((skill) => (
+                  {personalInfo.recentSkills.map((skill, index) => (
                     <li
-                      key={skill}
-                      className="relative pl-5 before:absolute before:left-0 before:text-sm before:leading-[12px] before:text-[#64ffda] before:content-['▹']"
-                    >
-                      {skill}
-                    </li>
+                      key={index}
+                      className="relative pl-[20px] before:absolute before:left-0 before:text-[14px] before:leading-[12px] before:text-[#64ffda] before:content-['▹']"
+                      dangerouslySetInnerHTML={{ __html: skill }}
+                    />
                   ))}
                 </ul>
               </div>
@@ -668,30 +740,20 @@ export default function BrittanyV4Portfolio() {
               return (
                 <li key={project.title}>
                   <RevealOnScroll className="group relative rounded-[4px] bg-[#112240] p-6 sm:p-8 shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] overflow-hidden md:bg-transparent md:p-0 md:shadow-none md:overflow-visible md:grid md:grid-cols-12 md:items-center">
-                    {/* Project Image: Background absolute di Mobile, Grid 7 Kolom dengan hover effect di Desktop */}
+
+                    {/* Project Image: 
+                        - Mobile: bg-[#112240] (Navy)
+                        - Desktop: bg-[#64ffda] (Hijau Teal), lalu saat di hover berubah jadi transparent
+                    */}
                     <div
-                      className={`absolute inset-0 z-0 h-full w-full overflow-hidden rounded-[4px] pointer-events-none md:pointer-events-auto md:relative md:inset-auto md:z-auto md:col-span-7 md:row-start-1 md:aspect-[16/10] md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] md:bg-[#64ffda] ${isOdd ? "md:col-start-6" : "md:col-start-1"
+                      className={`absolute inset-0 z-0 h-full w-full overflow-hidden rounded-[4px] pointer-events-none md:pointer-events-auto md:relative md:inset-auto md:z-auto md:col-span-7 md:row-start-1 md:aspect-video md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] transition-colors duration-300 
+                      bg-[#112240] md:bg-[#64ffda] md:group-hover:bg-transparent ${isOdd ? "md:col-start-6" : "md:col-start-1"
                         }`}
                     >
-                      <a
-                        href={project.external || project.github || "#"}
-                        target={project.external || project.github ? "_blank" : undefined}
-                        rel="noreferrer"
-                        tabIndex={-1}
-                        aria-hidden="true"
-                        className="relative block h-full w-full bg-[#112240] md:bg-[#64ffda] transition-colors duration-300 md:hover:bg-transparent"
-                      >
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 700px"
-                          className="object-cover opacity-25 filter grayscale contrast-100 brightness-90 md:opacity-100 md:mix-blend-multiply transition-all duration-300 group-hover:md:mix-blend-normal group-hover:md:filter-none"
-                        />
-                      </a>
+                      <ProjectSlider images={project.images} altText={project.title} />
                     </div>
 
-                    {/* Project Content: Mengalir alami di mobile, Grid 7 Kolom bertumpuk di desktop */}
+                    {/* Project Content (Tetap sama seperti sebelumnya) */}
                     <div
                       className={`relative z-10 flex flex-col justify-center w-full text-left items-start md:col-span-7 md:row-start-1 md:z-20 md:p-0 ${isOdd
                         ? "md:col-start-1 md:items-start md:text-left"
@@ -701,7 +763,7 @@ export default function BrittanyV4Portfolio() {
                       <p className="mb-2 font-mono text-xs sm:text-sm font-normal text-[#64ffda]">
                         {project.overline}
                       </p>
-                      <h3 className="mb-4 text-xl sm:text-2xl font-semibold text-[#ccd6f6] transition-colors hover:text-[#64ffda]">
+                      <h3 className="mb-4 text-xl sm:text-2xl font-semibold text-[#ccd6f6] transition-colors md:hover:text-[#64ffda]">
                         {project.external ? (
                           <a
                             href={project.external}
@@ -715,13 +777,12 @@ export default function BrittanyV4Portfolio() {
                         )}
                       </h3>
 
-                      {/* Deskripsi: Bersih tanpa kotak di mobile ala Brittany Chiang, floating box di desktop */}
                       <div className="relative z-20 text-sm leading-relaxed text-[#a8b2d1] md:rounded-[4px] md:bg-[#112240] md:p-6 md:text-base md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]">
                         <p>{project.description}</p>
                       </div>
 
                       <ul
-                        className={`mt-4 mb-2 flex flex-wrap gap-x-3.5 gap-y-1.5 p-0 list-none font-mono text-xs sm:text-sm text-[#8892b0] md:text-[#a8b2d1] justify-start ${isOdd ? "md:justify-start" : "md:justify-end"
+                        className={`mt-4 mb-2 flex flex-wrap gap-x-3.5 gap-y-1.5 p-0 list-none font-mono text-xs sm:text-sm text-[#ccd6f6] md:text-[#a8b2d1] justify-start ${isOdd ? "md:justify-start" : "md:justify-end"
                           }`}
                       >
                         {project.tech.map((t) => (
@@ -961,7 +1022,7 @@ export default function BrittanyV4Portfolio() {
                   fill="currentColor"
                   className="h-4 w-4"
                 >
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                 </svg>
                 Chat on WhatsApp
               </a>
@@ -1040,7 +1101,7 @@ export default function BrittanyV4Portfolio() {
                   className="h-5 w-5"
                 >
                   <title>WhatsApp</title>
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                 </svg>
               </a>
             </li>
