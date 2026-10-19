@@ -17,11 +17,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const touchEndX = useRef<number>(0);
 
   // Ambil daftar gambar (fallback ke project.image jika project.images kosong)
-  const images = project?.images && project.images.length > 0
-    ? project.images
-    : project?.image
-    ? [project.image]
-    : [];
+  const images = project?.images || [];
 
   const totalSlides = images.length;
   const hasMultipleSlides = totalSlides > 1;
@@ -222,11 +218,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         setCurrentSlide(dotIdx);
                       }}
                       aria-label={`Jump to slide ${dotIdx + 1}`}
-                      className={`h-1.5 rounded-full transition-all duration-200 ${
-                        dotIdx === currentSlide
+                      className={`h-1.5 rounded-full transition-all duration-200 ${dotIdx === currentSlide
                           ? "w-5 bg-white shadow-sm"
                           : "w-1.5 bg-white/50 hover:bg-white/80"
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>

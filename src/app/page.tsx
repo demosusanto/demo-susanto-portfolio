@@ -61,24 +61,25 @@ function RevealOnScroll({
   );
 }
 
-function ProjectSlider({ images = [], altText }: { images: string[]; altText: string }) {
+function ProjectSlider({ images = [], altText, isOdd = false }: { images: string[]; altText: string; isOdd?: boolean }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+  // Fungsi Navigasi
+  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % images.length);
+  const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  const goToSlide = (index: number) => setCurrentIndex(index);
 
   useEffect(() => {
     if (!images || images.length <= 1) return;
     if (isHovered) return;
 
-    const slideInterval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
-
+    const slideInterval = setInterval(nextSlide, 4000);
     return () => clearInterval(slideInterval);
   }, [images?.length, isHovered]);
+
+  // Menentukan posisi aman untuk indikator agar menjauhi area tumpukan Text Box
+  const alignSafeSide = isOdd ? "md:justify-end md:pr-6" : "md:justify-start md:pl-6";
 
   return (
     <div
@@ -98,36 +99,41 @@ function ProjectSlider({ images = [], altText }: { images: string[]; altText: st
               alt={`${altText} - Slide ${idx + 1}`}
               fill
               sizes="(max-width: 768px) 100vw, 700px"
-              /* PERUBAHAN UTAMA DI SINI UNTUK MOBILE */
               className="object-cover md:object-contain transition-all duration-500 ease-in-out
-                /* Mobile: Opacity sangat rendah (10%), grayscale penuh, dan redup agar teks di depannya kontras */
                 opacity-10 grayscale brightness-50 mix-blend-screen
-                /* Desktop Awal: Opacity 100%, grayscale, multiply ke background teal */
                 md:opacity-100 md:grayscale md:brightness-90 md:mix-blend-multiply
-                /* Desktop Hover: Kembali normal */
                 md:group-hover:grayscale-0 md:group-hover:brightness-100 md:group-hover:mix-blend-normal"
             />
           </div>
         ))}
       </div>
 
-      {/* Titik Indikator: Disembunyikan di Mobile, Tampil di Desktop */}
+      {/* Indikator Angka (Selalu aktif agar seragam untuk semua project) */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-0 right-0 z-20 hidden md:flex justify-center gap-2.5">
-          {images.map((_, idx) => (
+        <div className={`absolute bottom-5 left-0 right-0 z-30 hidden md:flex w-full items-center justify-center ${alignSafeSide}`}>
+          <div className="flex items-center gap-4 bg-[#0a192f]/95 border border-[#64ffda]/30 px-3 py-1.5 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.8)] backdrop-blur-sm">
             <button
-              key={idx}
-              onClick={(e) => {
-                e.preventDefault();
-                goToSlide(idx);
-              }}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2.5 rounded-full transition-all duration-300 shadow-[0_0_4px_rgba(0,0,0,0.8)] border ${idx === currentIndex
-                  ? "bg-[#64ffda] border-[#64ffda] w-6"
-                  : "bg-[#0a192f]/90 border-[#64ffda]/50 hover:bg-[#64ffda]/60 w-2.5"
-                }`}
-            />
-          ))}
+              onClick={(e) => { e.preventDefault(); prevSlide(); }}
+              className="text-[#a8b2d1] hover:text-[#64ffda] transition-colors p-1"
+              aria-label="Previous Slide"
+            >
+              {/* Icon Arrow Left */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <span className="font-mono text-[13px] text-[#64ffda] tracking-widest select-none">
+              {String(currentIndex + 1).padStart(2, '0')} <span className="text-[#a8b2d1] mx-1">/</span> {String(images.length).padStart(2, '0')}
+            </span>
+
+            <button
+              onClick={(e) => { e.preventDefault(); nextSlide(); }}
+              className="text-[#a8b2d1] hover:text-[#64ffda] transition-colors p-1"
+              aria-label="Next Slide"
+            >
+              {/* Icon Arrow Right */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
       )}
     </div>
@@ -750,7 +756,7 @@ export default function BrittanyV4Portfolio() {
                       bg-[#112240] md:bg-[#64ffda] md:group-hover:bg-transparent ${isOdd ? "md:col-start-6" : "md:col-start-1"
                         }`}
                     >
-                      <ProjectSlider images={project.images} altText={project.title} />
+                      <ProjectSlider images={project.images} altText={project.title} isOdd={isOdd} />
                     </div>
 
                     {/* Project Content (Tetap sama seperti sebelumnya) */}

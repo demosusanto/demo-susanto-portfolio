@@ -154,55 +154,66 @@ export const featuredProjects = [
         description:
             "A smart personal finance and daily budget management mobile app published on Google Play and the Apple App Store, paired with a product landing page featuring AI Input Chat, Voice Input, Receipt Scanning, and automated financial insights.",
         images: [
-            "/projects/catat-uang-1.png",
-            "/projects/catat-uang-2.png",
-            "/projects/catat-uang-3.png",
+            "/projects/catatuang/catat-uang-1.png",
+            "/projects/catatuang/catat-uang-2.png",
+            "/projects/catatuang/catat-uang-3.png",
         ],
         tech: ["Flutter", "ReactJS", "React Vite", "Lucide React"],
         github: "",
         external: "https://catatuang.sikluswaktu.my.id/",
     },
-    // {
-    //     title: "Movus Website & Landing Page",
-    //     overline: "Featured Project",
-    //     description:
-    //         "A comprehensive UI/UX revamp and frontend implementation for Movus Technologies (mo-vus.com), a car rental-to-ownership platform for online drivers. Features an interactive registration workflow, benefit highlights, FAQ, and driver stories.",
-    //     images: [
-    //         "/images/projects/movus.png",
-    //     ],
-    //     tech: ["JavaScript", "PHP", "Figma", "Design System", "Responsive Web"],
-    //     github: "",
-    //     external: "https://mo-vus.com",
-    // },
     {
         title: "IRIIS - Integrated Ran Automatic Planning Tools",
         overline: "Featured Project",
         description:
             "An enterprise telecommunication dashboard built under Telkomsel for monitoring Network Elements, Physical Sites, and Coverage Population across regions, complete with interactive maps and City Cap & PRB Utilization stacked bar charts.",
         images: [
-            "/projects/Home.png",
-            "/projects/Interactive Dashboard.png",
-            "/projects/Interactive Dashboard v2.png",
-            "/projects/Interactive Dashboard-1.png",
-            "/projects/Interactive Dashboard-2.png",
-            "/projects/Interactive Dashboard-3.png",
-            "/projects/Interactive Dashboard-4.png",
-            "/projects/Interactive Dashboard-5.png",
-            "/projects/Interactive Dashboard-6.png",
+            "/projects/iriis/Home.png",
+            "/projects/iriis/Home2.png",
+            "/projects/iriis/Home Alt Button.png",
+            "/projects/iriis/Interactive Dashboard.png",
+            "/projects/iriis/Interactive Dashboard v2.png",
+            "/projects/iriis/Interactive Dashboard-1.png",
+            "/projects/iriis/Interactive Dashboard-2.png",
+            "/projects/iriis/Interactive Dashboard-3.png",
+            "/projects/iriis/Interactive Dashboard-4.png",
+            "/projects/iriis/Interactive Dashboard-5.png",
+            "/projects/iriis/Interactive Dashboard-6.png",
+            "/projects/iriis/Upload.png",
+            "/projects/iriis/Upload2.png"
         ],
-        tech: ["ReactJS", "React Bootstrap", "REST API", "PHP Phalcon"],
+        tech: ["ReactJS", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
         github: "",
         external: "",
     },
     {
-        title: "Tempat Makanku - Food Ordering UI",
+        title: "BroFIST Tools",
         overline: "Featured Project",
         description:
-            "A mobile dine-in food ordering UI/UX experience designed to simplify restaurant ordering. Includes menu discovery, customizable toppings, QR code table registration, and an intuitive split-bill checkout flow.",
+            "Developed web dashboard for Telkomsel's internal fraud analysis team. Built with ReactJS and React-Bootstrap, the application integrates REST APIs to deliver live traffic analytics, interactive charts, and real-time network penetration test statuses in a clean, user-friendly interface.",
         images: [
-            "/images/projects/tempat-makanku.png"
+            "/projects/brofist/1-NSAM - Login.png",
+            "/projects/brofist/1-NSAM - Login2.png",
+            "/projects/brofist/1-NSAM_BroFIST_PenTools_PenList.png",
+            "/projects/brofist/1-TracingMSISDN-Profile.png",
+            "/projects/brofist/2-NSAM_BroFIST_PenTools_Step1.png",
+            "/projects/brofist/2-TracingMSISDN-Profile.png",
+            "/projects/brofist/3-NSAM_BroFIST_PenTools_Step1_popup1.png",
+            "/projects/brofist/3-TracingMSISDN-Profile.png",
+            "/projects/brofist/4-NSAM_BroFIST_PenTools_Step1_popup2.png",
+            "/projects/brofist/5-NSAM_BroFIST_PenTools_Step2.png",
+            "/projects/brofist/6-NSAM_BroFIST_PenTools_Step3.png",
+            "/projects/brofist/CacheEngine-VO.png",
+            "/projects/brofist/GGSN Config File Comparation.png",
+            "/projects/brofist/Modem - Create.png",
+            "/projects/brofist/Modem - Delete.png",
+            "/projects/brofist/Modem.png",
+            "/projects/brofist/NSAM_BroFIST_UPCC Monitoring.png",
+            "/projects/brofist/NSAM_BroFIST_UPCC Monitoring2.png",
+            "/projects/brofist/NSAM_CRUD.png",
+            "/projects/brofist/NSAM-Dashboard.png"
         ],
-        tech: ["Figma", "UI/UX Design", "Interactive Prototype", "Mobile App"],
+        tech: ["ReactJS", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
         github: "",
         external: "",
     },
@@ -216,109 +227,126 @@ export interface OtherProject {
     external: string;
     modalTitle: string;
     modalSubtitle: string;
-    image: string;
     images: string[];
 }
 
 export const otherProjects: OtherProject[] = [
     {
-        title: "BroFIST & NSAM Tools — Telkomsel",
-        modalTitle: "BroFIST & NSAM Tools",
-        modalSubtitle: "Developed with ReactJS & Chart.js for Telkomsel internal network traffic & fraud monitoring dashboard.",
-        image: "/projects/brofist-nsam.svg",
+        title: "movus tech",
+        modalTitle: "movus company profile & customer registration",
+        modalSubtitle: "A comprehensive UI/UX revamp and frontend implementation for Movus Technologies (mo-vus.com), a car rental-to-ownership platform for online drivers. Features an interactive registration workflow, benefit highlights, FAQ, and driver stories.",
         images: [
-            "/projects/brofist-nsam.svg",
-            "/projects/brofist-msisdn.svg",
+            "/projects/movus/before.png",
+            "/projects/movus/after.png",
+            "/projects/movus/Home page section 1-2.png",
+            "/projects/movus/Home page section 3-4.png",
+            "/projects/movus/Home page section 5 - footer.png",
+            "/projects/movus/About us section 1-2.png",
+            "/projects/movus/About us section 3-4.png",
+            "/projects/movus/About us section 5 - footer.png",
+            "/projects/movus/Agent page section 1-2.png",
+            "/projects/movus/Agent page section 3 - footer.png",
+            "/projects/movus/Career page section 1-2.png",
+            "/projects/movus/Career page section 3.png",
+            "/projects/movus/Career page section 4 - footer.png",
+            "/projects/movus/Contact us page section 1-2.png",
+            "/projects/movus/Contact us page section 3 - footer.png",
+            "/projects/movus/FAQ page section 1-2.png",
+            "/projects/movus/FAQ page section 3 - footer.png",
+            "/projects/movus/Modal Register Customer movus.png",
+            "/projects/movus/Register page section 1-2.png",
+            "/projects/movus/Register page section 2 - footer.png"
         ],
         description:
-            "Internal application access portal and real-time monitoring dashboard for MSISDN usage, Trend DPI Fraud Traffic charts, modem quotas, and penetration testing status tracking.",
-        tech: ["React.js", "JavaScript", "Chart.js", "HTML/CSS"],
+            "A comprehensive UI/UX revamp and frontend implementation for the Movus company profile. The redesign significantly improved user engagement, achieving a 1,036.4% increase in total pageviews. Overall web traffic grew from 50,089 to 599,441 within two months, averaging over 9,600 daily views.",
+        tech: ["Figma", "Studio.Design"],
         github: "",
         external: "",
     },
     {
-        title: "M-Bike CMS Admin — Telkomsel (AHM)",
-        modalTitle: "M-Bike CMS Admin",
-        modalSubtitle: "Developed with ReactJS & Google Maps API for Astra Honda Motor real-time fleet GPS tracking.",
-        image: "/projects/mbike-cms.svg",
+        title: "M-Bike CMS Admin - Telkomsel (AHM)",
+        modalTitle: "M-Bike CMS",
+        modalSubtitle: "Developed with AngularJS as Front End and Spring Boot as Back End with IoT tools for control bike.",
         images: [
-            "/projects/mbike-cms.svg",
-            "/projects/mbike-analytics.svg",
+            "/projects/mbike/Bikes Map - geofence.png",
+            "/projects/mbike/MBike - Bikes Map.png",
+            "/projects/mbike/MBike - Customer Profile.png",
+            "/projects/mbike/MBike - Dashboard - Overview.png",
+            "/projects/mbike/MBike - Driver Management.png",
+            "/projects/mbike/MBike - Email Template.png",
+            "/projects/mbike/MBike - EmailTemplate - ResetPassword.png",
+            "/projects/mbike/MBike - Forgot Pass.png",
+            "/projects/mbike/MBike - Login.png",
+            "/projects/mbike/MBike - Report.png",
+            "/projects/mbike/MBike - triphistory - list.png"
         ],
         description:
             "Fleet management admin dashboard for PT Astra Honda Motor featuring real-time GPS fleet mapping, active/inactive bike summaries, geofence & speed alerts, and daily/weekly utilization charts.",
-        tech: ["React.js", "Maps API", "CMS Dashboard", "Tailwind"],
+        tech: ["AngularJS", "Spring Boot", "REST API", "IoT"],
+        github: "",
+        external: "",
+    },
+
+    {
+        title: "HiREST - Hotel Room Reservation",
+        modalTitle: "HiREST CMS",
+        modalSubtitle: "Developed with ReactJS as Front End for CMS Hotel.",
+        images: [
+            "/projects/hirest/booking-payment.png",
+            "/projects/hirest/Gallery.png",
+            "/projects/hirest/Hirest-FormReservasi-1.png",
+            "/projects/hirest/Hirest-FormReservasi-2.png",
+            "/projects/hirest/Hirest-FormReservasi-3.png",
+            "/projects/hirest/Hirest-FormReservasi-4.png",
+            "/projects/hirest/Hirest-FormReservasi-5.png",
+            "/projects/hirest/Hirest-Room-Rates.png",
+            "/projects/hirest/Kasir-Pembayaran-Tamu.png",
+            "/projects/hirest/Service-Facility-1.png",
+            "/projects/hirest/Service-Facility-Carousel.png",
+            "/projects/hirest/Service-Facility-Hover.png",
+            "/projects/hirest/Service-Facility.png"
+        ],
+        description:
+            "End-to-end hotel reservation and room management system featuring visual floor room status boards, guest billing management, and website template customization.",
+        tech: ["React.js", "Redux", "PHP Phalcon"],
         github: "",
         external: "",
     },
     {
         title: "Pegadaian CRM & Customer Portal",
         modalTitle: "Pegadaian CRM & Customer Portal",
-        modalSubtitle: "Developed with ReactJS & Tailwind CSS as Customer Relationship Management & Gold Portal.",
-        image: "/projects/pegadaian-crm.svg",
+        modalSubtitle: "Developed with ReactJS as Customer Relationship Management",
         images: [
-            "/projects/pegadaian-crm.svg",
-            "/projects/pegadaian-portal.svg",
+            "/projects/pegadaian/0-pegadaian-login.png",
+            "/projects/pegadaian/1-pegadaian-dashboard-list.png",
+            "/projects/pegadaian/1-pegadaian-dashboard.png",
+            "/projects/pegadaian/2-pegadaian-dashboard-list.png",
+            "/projects/pegadaian/2-pegadaian-dashboard-logout.png",
+            "/projects/pegadaian/3-pegadaian-dashboard-list-1.png",
+            "/projects/pegadaian/3-pegadaian-dashboard-list-details.png",
+            "/projects/pegadaian/4-pegadaian-dashboard-list-details.png",
+            "/projects/pegadaian/5-pegadaian-dashboard-list-details-2.png",
+            "/projects/pegadaian/6-pegadaian-dashboard-list-details-1.png",
+            "/projects/pegadaian/7-pegadaian-dashboard-list-details-3.png",
+            "/projects/pegadaian/8-pegadaian-dashboard-list-2.png",
+            "/projects/pegadaian/9-pegadaian-dashboard-list-details-4.png",
+            "/projects/pegadaian/10-pegadaian-dashboard-list-details-5.png",
+            "/projects/pegadaian/11-pegadaian-dashboard.png",
+            "/projects/pegadaian/Pegadaian-Customer-Dashboard.png"
         ],
         description:
             "Agent CRM dashboard to manage incoming customer inquiries and visualize product proportions (KCA, Rahn, Mulia), alongside a customer portal for gold transactions and live chat.",
-        tech: ["React.js", "Tailwind CSS", "REST API", "CRM"],
+        tech: ["React.js", "Redux", "REST API", "PHP Phalcon"],
         github: "",
         external: "",
     },
     {
-        title: "HIREST — Hotel Room Reservation",
-        modalTitle: "Hirest CMS",
-        modalSubtitle: "Developed with ReactJS as Front End for CMS Hotel.",
-        image: "/projects/hirest-cms.svg",
-        images: [
-            "/projects/hirest-cms.svg",
-            "/projects/hirest-booking.svg",
-        ],
-        description:
-            "End-to-end hotel reservation and room management system (e.g., Bumi Ubud Hotel) featuring visual floor room status boards, guest billing management, and website template customization.",
-        tech: ["React.js", "React Bootstrap", "PHP Phalcon"],
-        github: "",
-        external: "",
-    },
-    {
-        title: "UMKM Super App — E-Commerce Module",
-        modalTitle: "UMKM Super App",
-        modalSubtitle: "Designed with Figma & Design System for Berani Digital ID local merchant digital marketplace.",
-        image: "/projects/umkm-superapp.svg",
-        images: [
-            "/projects/umkm-superapp.svg",
-            "/projects/umkm-seller.svg",
-        ],
-        description:
-            "Designed a comprehensive E-Commerce module and seamless digital payment experience tailored for local micro, small, and medium enterprises (UMKM) at Berani Digital ID.",
-        tech: ["Figma", "Balsamiq", "UI/UX", "Design System"],
-        github: "",
-        external: "",
-    },
-    {
-        title: "Detection Water App — CMS Dashboard",
-        modalTitle: "Detection Water App CMS",
-        modalSubtitle: "Designed with Figma & Adobe Creative Suite for smart water monitoring telemetry dashboard.",
-        image: "/projects/water-detection.svg",
-        images: [
-            "/projects/water-detection.svg",
-            "/projects/water-map.svg",
-        ],
-        description:
-            "Designed an intuitive Content Management System (CMS) and monitoring dashboard interface for a smart water detection application, focusing on clear data hierarchy.",
-        tech: ["Figma", "Adobe Illustrator", "Photoshop", "Dashboard UI"],
-        github: "",
-        external: "",
-    },
-    {
-        title: "BNI DMA — Teradata to Oracle Migration",
+        title: "BNI DMA - Teradata to Oracle Migration",
         modalTitle: "BNI DMA Migration Workbench",
         modalSubtitle: "Engineered with Oracle SQL & DBeaver for enterprise banking analytics pipeline migration.",
-        image: "/projects/bni-dma.svg",
         images: [
-            "/projects/bni-dma.svg",
-            "/projects/bni-pipeline.svg",
+            "/projects/bni/bni-dma.svg",
+            "/projects/bni/bni-pipeline.svg",
         ],
         description:
             "Enterprise data migration, query conversion, and SIT documentation project within PT Bank Negara Indonesia's Data Management & Analytics division.",
@@ -326,6 +354,37 @@ export const otherProjects: OtherProject[] = [
         github: "",
         external: "",
     },
+    {
+        title: "Detection Water App - CMS Dashboard",
+        modalTitle: "Detection Water App CMS",
+        modalSubtitle: "Designed with Figma for smart water monitoring telemetry dashboard.",
+        images: [
+            "/projects/detection-water/Dashboards-SensorData-AllOpen-Level-2.png",
+            "/projects/detection-water/Dashboards-SmartHome-AllOpen.png",
+            "/projects/detection-water/Dashboards-SmartPoolDetection-AllOpen-Level-2.png",
+            "/projects/detection-water/Sign-in-Basic.png",
+            "/projects/detection-water/Sign-up-Basic.png"
+        ],
+        description:
+            "Designed an intuitive Content Management System (CMS) and monitoring dashboard interface for a smart water detection application, focusing on clear data hierarchy.",
+        tech: ["Figma", "Photoshop"],
+        github: "",
+        external: "",
+    },
+    // {
+    //     title: "UMKM Super App — E-Commerce Module",
+    //     modalTitle: "UMKM Super App",
+    //     modalSubtitle: "Designed with Figma & Design System for Berani Digital ID local merchant digital marketplace.",
+    //     images: [
+    //         "/projects/umkm-superapp.svg",
+    //         "/projects/umkm-seller.svg",
+    //     ],
+    //     description:
+    //         "Designed a comprehensive E-Commerce module and seamless digital payment experience tailored for local micro, small, and medium enterprises (UMKM) at Berani Digital ID.",
+    //     tech: ["Figma", "Balsamiq", "UI/UX", "Design System"],
+    //     github: "",
+    //     external: "",
+    // },
 ];
 
 export interface Certificate {
@@ -339,39 +398,11 @@ export interface Certificate {
 
 export const certificates: Certificate[] = [
     {
-        id: "cert-komit",
-        title: "Sertifikat Magang — KOMIT & Telkomsel",
-        issuer: "Komunitas Masyarakat Informatika (KOMIT)",
-        date: "1 April 2017",
-        image: "/certificates/cert-komit-telkomsel.svg",
-        description:
-            "Telah menyelesaikan magang dengan sangat baik, membangun aplikasi Telkomsel Integrated Compliance Management System menggunakan PHP dan MySQL.",
-    },
-    {
-        id: "cert-telkomsigma",
-        title: "Certificate of Appreciation — Telkomsigma",
-        issuer: "PT Sigma Cipta Caraka (Telkom Group)",
-        date: "Juli 2023",
-        image: "/certificates/cert-telkomsigma.svg",
-        description:
-            "Penghargaan atas dedikasi dan kontribusi pengembangan solusi enterprise: Hirest CMS, BroFIST & NSAM Tools, dan Pegadaian CRM Portal.",
-    },
-    {
-        id: "cert-bni",
-        title: "Certificate of Achievement — Bank BNI DMA",
-        issuer: "PT Bank Negara Indonesia (Persero) Tbk.",
-        date: "Februari 2026",
-        image: "/certificates/cert-bni.svg",
-        description:
-            "Migrasi enterprise data pipeline, konversi query Teradata ke Oracle SQL, validasi SIT, dan optimasi performa sistem di divisi DMA BNI.",
-    },
-    {
-        id: "cert-movus",
-        title: "Product Design & Frontend Excellence — Movus",
-        issuer: "Movus Technologies",
-        date: "September 2025",
-        image: "/certificates/cert-movus.svg",
-        description:
-            "Apresiasi inovasi Design System dan implementasi Frontend responsif multi-platform web & mobile app untuk ekosistem Mo-Vus.",
+        id: "1",
+        title: "Badan Nasional Sertifikasi Profesi",
+        issuer: "BNSP",
+        date: "",
+        image: "/certificates/Sertifikat BNSP.jpg",
+        description: "",
     },
 ];
