@@ -436,7 +436,7 @@ export default function BrittanyV4Portfolio() {
                 <li>
                   <button onClick={() => switchLanguage('ja')} className={`flex items-center gap-3 w-full text-left px-4 py-2.5 hover:bg-[#233554] hover:text-[#64ffda] transition-colors ${lang === 'ja' ? 'text-[#64ffda] bg-[#233554]/50' : ''}`}>
                     <img src="https://flagcdn.com/w20/jp.png" srcSet="https://flagcdn.com/w40/jp.png 2x" width="20" alt="JP" className="rounded-sm" />
-                    Japan
+                    日本語
                   </button>
                 </li>
               </ul>
@@ -529,7 +529,7 @@ export default function BrittanyV4Portfolio() {
                 </li>
                 <li>
                   <button onClick={() => { switchLanguage('ja'); setMobileLangOpen(false); setMobileMenuOpen(false); }} className={`flex items-center gap-3 w-full text-left px-4 py-3 hover:bg-[#112240] hover:text-[#64ffda] transition-colors ${lang === 'ja' ? 'text-[#64ffda]' : ''}`}>
-                    <img src="https://flagcdn.com/w20/jp.png" width="20" alt="JP" className="rounded-sm" /> Japan
+                    <img src="https://flagcdn.com/w20/jp.png" width="20" alt="JP" className="rounded-sm" />日本語
                   </button>
                 </li>
               </ul>
