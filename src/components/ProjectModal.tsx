@@ -7,9 +7,10 @@ import { OtherProject } from "@/data/portfolio";
 interface ProjectModalProps {
   project: OtherProject | null;
   onClose: () => void;
+  lang: 'en' | 'id' | 'ja';
 }
 
-export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+export default function ProjectModal({ project, onClose, lang }: ProjectModalProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Touch swipe handling for mobile
@@ -103,10 +104,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               id="modal-headline"
               className="text-xl sm:text-2xl font-bold tracking-tight text-slate-800"
             >
-              {project.modalTitle || project.title}
+              {project.modalTitle[lang] || project.title[lang]}
             </h3>
             <p className="mt-1 text-sm sm:text-base text-slate-600">
-              {project.modalSubtitle || project.description}
+              {project.modalSubtitle[lang] || project.description[lang]}
             </p>
           </div>
 
@@ -153,7 +154,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 >
                   <Image
                     src={imgSrc}
-                    alt={`${project.modalTitle || project.title} - Slide ${idx + 1}`}
+                    alt={`${project.modalTitle[lang] || project.title[lang]} - Slide ${idx + 1}`}
                     width={920}
                     height={540}
                     priority={idx === 0}
@@ -219,8 +220,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       }}
                       aria-label={`Jump to slide ${dotIdx + 1}`}
                       className={`h-1.5 rounded-full transition-all duration-200 ${dotIdx === currentSlide
-                          ? "w-5 bg-white shadow-sm"
-                          : "w-1.5 bg-white/50 hover:bg-white/80"
+                        ? "w-5 bg-white shadow-sm"
+                        : "w-1.5 bg-white/50 hover:bg-white/80"
                         }`}
                     />
                   ))}
@@ -232,7 +233,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Additional Description & Tech Stack Pills */}
           <div className="pt-2">
             <p className="text-sm leading-relaxed text-slate-600">
-              {project.description}
+              {project.description[lang]}
             </p>
 
             <div className="mt-3 flex flex-wrap gap-2">
@@ -255,7 +256,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             onClick={onClose}
             className="rounded-md bg-[#0070f3] hover:bg-blue-600 active:bg-blue-700 px-6 py-2 text-sm font-medium text-white shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
-            Close
+            {lang === 'id' ? 'Tutup' : lang === 'ja' ? '閉じる' : 'Close'}
           </button>
         </div>
       </div>

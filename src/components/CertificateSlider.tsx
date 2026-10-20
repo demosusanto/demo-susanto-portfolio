@@ -4,7 +4,13 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { certificates } from "@/data/portfolio";
 
-export default function CertificateSlider() {
+// 1. Tambahkan tipe Props
+interface CertificateSliderProps {
+  lang: 'en' | 'id' | 'ja';
+}
+
+// 2. Terima lang di komponen
+export default function CertificateSlider({ lang }: CertificateSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -90,7 +96,7 @@ export default function CertificateSlider() {
             >
               <Image
                 src={cert.image}
-                alt={cert.title}
+                alt={cert.title[lang]}
                 fill
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, 760px"
@@ -150,11 +156,10 @@ export default function CertificateSlider() {
               key={cert.id}
               onClick={() => setCurrentIndex(index)}
               aria-label={`Go to slide ${index + 1}: ${cert.title}`}
-              className={`h-1.5 rounded-full transition-all duration-300 focus:outline-none ${
-                isActive
-                  ? "w-8 bg-[#64ffda] shadow-[0_0_10px_rgba(100,255,218,0.5)]"
-                  : "w-2.5 bg-[#233554] hover:bg-[#8892b0]"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 focus:outline-none ${isActive
+                ? "w-8 bg-[#64ffda] shadow-[0_0_10px_rgba(100,255,218,0.5)]"
+                : "w-2.5 bg-[#233554] hover:bg-[#8892b0]"
+                }`}
             />
           );
         })}

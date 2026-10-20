@@ -689,57 +689,14 @@ export default function BrittanyV4Portfolio() {
               <span className="mr-2.5 font-mono text-base sm:text-xl font-normal text-[#64ffda]">
                 01.
               </span>
-              About Me
+              {dict.about.title}
             </h2>
 
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[3fr_2fr]">
               <div className="space-y-4 text-base sm:text-lg leading-relaxed text-[#8892b0]">
-                <p>
-                  Hello! My name is Demo Susanto and I enjoy creating things
-                  that live on the internet. My journey in Information
-                  Technology spans over 8 years, including 7 years
-                  as a{" "}
-                  <span className="text-[#64ffda]">Frontend Developer</span> and
-                  hands-on experience as a{" "}
-                  <span className="text-[#64ffda]">UI/UX Designer</span> &amp;{" "}
-                  <span className="text-[#64ffda]">Data Engineer</span>.
-                </p>
-                <p>
-                  Fast-forward to today, and I’ve had the privilege of building
-                  and designing digital products ranging from{" "}
-                  <a
-                    href="https://catatuang.sikluswaktu.my.id/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#64ffda] hover:underline"
-                  >
-                    a personal finance application (Catat Uang)
-                  </a>
-                  ,{" "}
-                  <a
-                    href={personalInfo.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#64ffda] hover:underline"
-                  >
-                    enterprise telco projects under Telkomsel
-                  </a>
-                  , and{" "}
-                  <a
-                    href={personalInfo.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-[#64ffda] hover:underline"
-                  >
-                    Data Management & Analytics (DMA) division at (BNI)
-                  </a>
-                  . I hold a Bachelor&apos;s Degree in Informatics Engineering
-                  from Pamulang University (2018–2022) and a BNSP Programmer
-                  Certification.
-                </p>
-                <p>
-                  Here are a few technologies I’ve been working with recently:
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: dict.about.p1 }}></p>
+                <p dangerouslySetInnerHTML={{ __html: dict.about.p2 }}></p>
+                <p>{dict.about.p3}</p>
 
                 <ul className="mt-5 grid grid-cols-2 gap-x-3 gap-y-2 p-0 list-none font-mono text-xs sm:text-sm">
                   {personalInfo.recentSkills.map((skill, index) => (
@@ -779,7 +736,7 @@ export default function BrittanyV4Portfolio() {
               <span className="mr-2.5 font-mono text-base sm:text-xl font-normal text-[#64ffda]">
                 02.
               </span>
-              Where I’ve Worked
+              {dict.sections.experienceTitle}
             </h2>
 
             <div className="flex flex-col md:flex-row min-h-[340px]">
@@ -804,7 +761,7 @@ export default function BrittanyV4Portfolio() {
 
               <div className="w-full min-w-0 md:ml-6 py-1 px-1">
                 <h3 className="mb-1 text-lg sm:text-xl font-medium leading-[1.3] text-[#ccd6f6]">
-                  <span>{experiences[activeTab].role}</span>
+                  <span>{experiences[activeTab].role[lang]}</span>
                   <span className="text-[#64ffda]">
                     {" "}
                     @{" "}
@@ -820,11 +777,11 @@ export default function BrittanyV4Portfolio() {
                 </h3>
 
                 <p className="mb-6 font-mono text-xs sm:text-sm text-[#a8b2d1]">
-                  {experiences[activeTab].period}
+                  {experiences[activeTab].period[lang]}
                 </p>
 
                 <ul className="m-0 p-0 list-none space-y-3 text-base sm:text-lg leading-relaxed">
-                  {experiences[activeTab].duties.map((duty, i) => (
+                  {experiences[activeTab].duties[lang].map((duty, i) => (
                     <li
                       key={i}
                       className="relative pl-7 before:absolute before:left-0 before:text-[#64ffda] before:content-['▹']"
@@ -848,30 +805,26 @@ export default function BrittanyV4Portfolio() {
               <span className="mr-2.5 font-mono text-base sm:text-xl font-normal text-[#64ffda]">
                 03.
               </span>
-              Some Things I’ve Built
+              {dict.sections.workTitle}
             </h2>
           </RevealOnScroll>
 
           <ul className="m-0 p-0 list-none space-y-12 sm:space-y-16 md:space-y-24">
             {featuredProjects.map((project, idx) => {
               const isOdd = idx % 2 !== 0;
+              // Ekstrak string murni (bahasa Inggris) untuk key dan alt image
+              const projectTitle = project.title['en'];
               return (
-                <li key={project.title}>
+                <li key={projectTitle}>
                   <RevealOnScroll className="group relative rounded-[4px] bg-[#112240] p-6 sm:p-8 shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] overflow-hidden md:bg-transparent md:p-0 md:shadow-none md:overflow-visible md:grid md:grid-cols-12 md:items-center">
 
-                    {/* Project Image: 
-                        - Mobile: bg-[#112240] (Navy)
-                        - Desktop: bg-[#64ffda] (Hijau Teal), lalu saat di hover berubah jadi transparent
-                    */}
                     <div
                       className={`absolute inset-0 z-0 h-full w-full overflow-hidden rounded-[4px] pointer-events-none md:pointer-events-auto md:relative md:inset-auto md:z-auto md:col-span-7 md:row-start-1 md:aspect-video md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] transition-colors duration-300 
                       bg-[#112240] md:bg-[#64ffda] md:group-hover:bg-transparent ${isOdd ? "md:col-start-6" : "md:col-start-1"
                         }`}
                     >
-                      <ProjectSlider images={project.images} altText={project.title} isOdd={isOdd} />
+                      <ProjectSlider images={project.images} altText={projectTitle} isOdd={isOdd} />
                     </div>
-
-                    {/* Project Content (Tetap sama seperti sebelumnya) */}
                     <div
                       className={`relative z-10 flex flex-col justify-center w-full text-left items-start md:col-span-7 md:row-start-1 md:z-20 md:p-0 ${isOdd
                         ? "md:col-start-1 md:items-start md:text-left"
@@ -879,7 +832,7 @@ export default function BrittanyV4Portfolio() {
                         }`}
                     >
                       <p className="mb-2 font-mono text-xs sm:text-sm font-normal text-[#64ffda]">
-                        {project.overline}
+                        {project.overline[lang]}
                       </p>
                       <h3 className="mb-4 text-xl sm:text-2xl font-semibold text-[#ccd6f6] transition-colors md:hover:text-[#64ffda]">
                         {project.external ? (
@@ -888,15 +841,15 @@ export default function BrittanyV4Portfolio() {
                             target="_blank"
                             rel="noreferrer"
                           >
-                            {project.title}
+                            {project.title[lang]}
                           </a>
                         ) : (
-                          project.title
+                          project.title[lang]
                         )}
                       </h3>
 
                       <div className="relative z-20 text-sm leading-relaxed text-[#a8b2d1] md:rounded-[4px] md:bg-[#112240] md:p-6 md:text-base md:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)]">
-                        <p>{project.description}</p>
+                        <p>{project.description[lang]}</p>
                       </div>
 
                       <ul
@@ -975,7 +928,7 @@ export default function BrittanyV4Portfolio() {
         <section className="mx-auto max-w-[1000px] py-20 flex flex-col items-center">
           <RevealOnScroll className="flex flex-col items-center">
             <h2 className="mb-2 text-center text-2xl sm:text-[32px] font-semibold text-[#ccd6f6]">
-              Other Noteworthy Projects
+              {dict.otherProjects.title}
             </h2>
             <a
               href={personalInfo.linkedin}
@@ -983,13 +936,13 @@ export default function BrittanyV4Portfolio() {
               rel="noreferrer"
               className="mb-10 font-mono text-xs sm:text-sm text-[#64ffda] hover:underline"
             >
-              view the archive
+              {dict.otherProjects.viewArchive}
             </a>
           </RevealOnScroll>
 
           <ul className="grid w-full grid-cols-1 gap-4 p-0 list-none sm:grid-cols-2 lg:grid-cols-3">
             {displayedOtherProjects.map((project, index) => (
-              <li key={project.title} className="h-full">
+              <li key={project.title['en']} className="h-full">
                 <RevealOnScroll
                   delay={(index % 3) * 100}
                   className="group relative flex h-full flex-col justify-between rounded-[4px] bg-[#112240] px-6 py-8 shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] transition-all duration-250 hover:-translate-y-[7px] cursor-pointer hover:bg-[#13284c] border border-transparent hover:border-[#64ffda]/30"
@@ -1046,11 +999,11 @@ export default function BrittanyV4Portfolio() {
                       </div>
 
                       <h3 className="mb-2.5 text-lg sm:text-xl font-semibold leading-[1.3] text-[#ccd6f6] transition-colors group-hover:text-[#64ffda]">
-                        {project.title}
+                        {project.title[lang]}
                       </h3>
 
                       <div className="text-sm sm:text-base leading-relaxed text-[#a8b2d1]">
-                        <p>{project.description}</p>
+                        <p>{project.description[lang]}</p>
                       </div>
                     </header>
 
@@ -1073,7 +1026,7 @@ export default function BrittanyV4Portfolio() {
                 onClick={() => setShowMore(!showMore)}
                 className="mt-12 rounded-[4px] border border-[#64ffda] bg-transparent px-7 py-4 font-mono text-xs sm:text-sm leading-none text-[#64ffda] transition-all duration-200 hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[4px_4px_0_0_#64ffda]"
               >
-                Show {showMore ? "Less" : "More"}
+                {showMore ? dict.otherProjects.showLess : dict.otherProjects.showMore}
               </button>
             </RevealOnScroll>
           )}
@@ -1082,6 +1035,7 @@ export default function BrittanyV4Portfolio() {
           <ProjectModal
             project={selectedProject}
             onClose={() => setSelectedProject(null)}
+            lang={lang}
           />
         </section>
 
@@ -1092,21 +1046,16 @@ export default function BrittanyV4Portfolio() {
         >
           <RevealOnScroll>
             <h2 className="mb-4 block font-mono text-sm sm:text-base font-normal text-[#64ffda]">
-              04. What’s Next?
+              04. {dict.contact.title}
             </h2>
-
-            {/* Slider Sertifikat / Credentials Carousel (Screenshot 4) */}
-            <CertificateSlider />
-
+            <CertificateSlider lang={lang} />
             <h2 className="mt-12 sm:mt-16 mb-4 text-3xl sm:text-5xl md:text-[60px] font-semibold text-[#ccd6f6]">
-              Get In Touch
+              {dict.contact.heading}
             </h2>
             <p className="mx-auto max-w-[550px] text-base sm:text-lg leading-relaxed text-[#8892b0]">
-              Whether you have a question or just want to say hi, I’ll try my
-              best to get back to you!
+              {dict.contact.desc}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-              {/* Email CTA */}
               <a
                 href={`mailto:${personalInfo.email}`}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-[4px] border border-[#64ffda] bg-transparent px-7 py-4 sm:py-5 font-mono text-xs sm:text-sm leading-none text-[#64ffda] transition-all duration-200 hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[4px_4px_0_0_#64ffda]"
@@ -1124,7 +1073,7 @@ export default function BrittanyV4Portfolio() {
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                Say Hello
+                {dict.contact.emailBtn}
               </a>
 
               {/* WhatsApp CTA */}
@@ -1142,7 +1091,7 @@ export default function BrittanyV4Portfolio() {
                 >
                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                 </svg>
-                Chat on WhatsApp
+                {dict.contact.waBtn}
               </a>
             </div>
           </RevealOnScroll>
