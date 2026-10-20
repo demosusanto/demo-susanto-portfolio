@@ -3,6 +3,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+// Tambahkan 2 baris ini:
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { getDictionary } from "@/dictionaries";
 import {
   personalInfo,
   experiences,
@@ -146,10 +149,48 @@ export default function BrittanyV4Portfolio() {
   const [activeTab, setActiveTab] = useState(0);
   const [showMore, setShowMore] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const spotlightRef = useRef<HTMLDivElement>(null);
   const [cursorVisible, setCursorVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<OtherProject | null>(null);
+
+  // 1. Tambahkan ref untuk area dropdown mobile
+  const langMenuRef = useRef<HTMLDivElement>(null);
+
+  // 2. Tambahkan pendeteksi outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // Jika klik terjadi di luar elemen referensi, tutup dropdown
+      if (langMenuRef.current && !langMenuRef.current.contains(event.target as Node)) {
+        setMobileLangOpen(false);
+      }
+    }
+    // Pasang event listener saat komponen dimuat
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Bersihkan event listener saat komponen dilepas
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // === TAMBAHKAN LOGIKA MULTI-LANGUAGE DI SINI ===
+  const params = useParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // Ambil bahasa saat ini (default 'en')
+  const lang = (params?.lang as "en" | "id" | "ja") || "en";
+  const dict = getDictionary(lang); // Panggil kamus
+
+  // Fungsi untuk mengganti bahasa tanpa mereload halaman
+  const switchLanguage = (newLang: string) => {
+    if (!pathname) return;
+    const pathWithoutLang = pathname.replace(`/${lang}`, "");
+    const newPath = `/${newLang}${pathWithoutLang}`;
+    router.push(newPath);
+  };
+  // ===============================================
 
   // Siklus Loading Screen saat Reload Halaman
   useEffect(() => {
@@ -215,11 +256,12 @@ export default function BrittanyV4Portfolio() {
     };
   }, []);
 
+  // Update navLinks menggunakan teks dari kamus
   const navLinks = [
-    { num: "01.", name: "About", href: "#about" },
-    { num: "02.", name: "Experience", href: "#jobs" },
-    { num: "03.", name: "Work", href: "#projects" },
-    { num: "04.", name: "Contact", href: "#contact" },
+    { num: "01.", name: dict.nav.about, href: "#about" },
+    { num: "02.", name: dict.nav.experience, href: "#jobs" },
+    { num: "03.", name: dict.nav.work, href: "#projects" },
+    { num: "04.", name: dict.nav.contact, href: "#contact" },
   ];
 
   const displayedOtherProjects = showMore
@@ -367,8 +409,38 @@ export default function BrittanyV4Portfolio() {
               rel="noopener noreferrer"
               className="inline-block rounded-[4px] border border-[#64ffda] bg-transparent px-[16px] py-[12px] font-mono text-[13px] leading-none text-[#64ffda] transition-all duration-200 hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[3px_3px_0_0_#64ffda]"
             >
-              Resume
+              {dict.nav.resume}
             </a>
+          </div>
+          {/* === LANGUAGE SWITCHER DESKTOP === */}
+          <div className="group relative animate-fade-down ml-4" style={{ animationDelay: "600ms" }}>
+            <button className="flex items-center gap-1.5 font-mono text-[13px] text-[#a8b2d1] transition-colors group-hover:text-[#64ffda] py-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              {lang.toUpperCase()}
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div className="absolute right-0 top-[90%] w-[150px] rounded-[4px] bg-[#112240] border border-[#233554] shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] opacity-0 invisible translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <ul className="py-2 font-mono text-[13px] text-[#a8b2d1]">
+                <li>
+                  <button onClick={() => switchLanguage('en')} className={`flex items-center gap-3 w-full text-left px-4 py-2.5 hover:bg-[#233554] hover:text-[#64ffda] transition-colors ${lang === 'en' ? 'text-[#64ffda] bg-[#233554]/50' : ''}`}>
+                    <img src="https://flagcdn.com/w20/gb.png" srcSet="https://flagcdn.com/w40/gb.png 2x" width="20" alt="UK" className="rounded-sm" />
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => switchLanguage('id')} className={`flex items-center gap-3 w-full text-left px-4 py-2.5 hover:bg-[#233554] hover:text-[#64ffda] transition-colors ${lang === 'id' ? 'text-[#64ffda] bg-[#233554]/50' : ''}`}>
+                    <img src="https://flagcdn.com/w20/id.png" srcSet="https://flagcdn.com/w40/id.png 2x" width="20" alt="ID" className="rounded-sm" />
+                    Indonesia
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => switchLanguage('ja')} className={`flex items-center gap-3 w-full text-left px-4 py-2.5 hover:bg-[#233554] hover:text-[#64ffda] transition-colors ${lang === 'ja' ? 'text-[#64ffda] bg-[#233554]/50' : ''}`}>
+                    <img src="https://flagcdn.com/w20/jp.png" srcSet="https://flagcdn.com/w40/jp.png 2x" width="20" alt="JP" className="rounded-sm" />
+                    Japan
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -423,6 +495,46 @@ export default function BrittanyV4Portfolio() {
               Resume
             </a>
           </nav>
+          {/* === LANGUAGE SWITCHER MOBILE === */}
+          <div className="mt-10 w-[160px] relative" ref={langMenuRef}>
+            {/* Tombol Utama Mobile */}
+            <button
+              onClick={() => setMobileLangOpen(!mobileLangOpen)}
+              className="flex w-full items-center justify-between rounded-[4px] border border-[#233554] bg-[#112240] px-4 py-3 font-mono text-[13px] text-[#a8b2d1] transition-colors hover:border-[#64ffda] hover:text-[#64ffda]"
+            >
+              <div className="flex items-center gap-2.5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <div className="flex items-center gap-2">
+                  {/* Menampilkan bendera sesuai bahasa terpilih di tombol Mobile */}
+                  {lang === 'en' && <><img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" className="rounded-sm" /> EN</>}
+                  {lang === 'id' && <><img src="https://flagcdn.com/w20/id.png" width="16" alt="ID" className="rounded-sm" /> ID</>}
+                  {lang === 'ja' && <><img src="https://flagcdn.com/w20/jp.png" width="16" alt="JP" className="rounded-sm" /> JA</>}
+                </div>
+              </div>
+              <svg className={`w-4 h-4 transition-transform duration-300 ${mobileLangOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </button>
+
+            {/* List Opsi Mobile */}
+            <div className={`absolute bottom-full left-0 mb-2 w-full overflow-hidden rounded-[4px] bg-[#0a192f] border border-[#233554] shadow-xl transition-all duration-300 ${mobileLangOpen ? 'max-h-[160px] opacity-100' : 'max-h-0 opacity-0 border-transparent'}`}>
+              <ul className="flex flex-col font-mono text-[13px] text-[#a8b2d1] py-1">
+                <li>
+                  <button onClick={() => { switchLanguage('en'); setMobileLangOpen(false); setMobileMenuOpen(false); }} className={`flex items-center gap-3 w-full text-left px-4 py-3 hover:bg-[#112240] hover:text-[#64ffda] transition-colors ${lang === 'en' ? 'text-[#64ffda]' : ''}`}>
+                    <img src="https://flagcdn.com/w20/gb.png" width="20" alt="UK" className="rounded-sm" /> English
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => { switchLanguage('id'); setMobileLangOpen(false); setMobileMenuOpen(false); }} className={`flex items-center gap-3 w-full text-left px-4 py-3 hover:bg-[#112240] hover:text-[#64ffda] transition-colors ${lang === 'id' ? 'text-[#64ffda]' : ''}`}>
+                    <img src="https://flagcdn.com/w20/id.png" width="20" alt="ID" className="rounded-sm" /> Indonesia
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => { switchLanguage('ja'); setMobileLangOpen(false); setMobileMenuOpen(false); }} className={`flex items-center gap-3 w-full text-left px-4 py-3 hover:bg-[#112240] hover:text-[#64ffda] transition-colors ${lang === 'ja' ? 'text-[#64ffda]' : ''}`}>
+                    <img src="https://flagcdn.com/w20/jp.png" width="20" alt="JP" className="rounded-sm" /> Japan
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </aside>
       </header>
 
@@ -532,25 +644,25 @@ export default function BrittanyV4Portfolio() {
             style={{ animationDelay: "600ms" }}
             className="animate-fade-up mb-4 ml-1 font-mono text-sm sm:text-base font-normal text-[#64ffda]"
           >
-            Hi, my name is
+            {dict.hero.greeting}
           </h1>
           <h2
             style={{ animationDelay: "700ms" }}
             className="animate-fade-up m-0 text-3xl sm:text-5xl md:text-6xl lg:text-[72px] font-semibold leading-[1.1] tracking-tight text-[#ccd6f6]"
           >
-            {personalInfo.name}
+            {dict.hero.name}
           </h2>
           <h3
             style={{ animationDelay: "800ms" }}
             className="animate-fade-up mt-1 text-3xl sm:text-5xl md:text-6xl lg:text-[72px] font-semibold leading-[1.1] tracking-tight text-[#8892b0]"
           >
-            {personalInfo.tagline}
+            {dict.hero.tagline}
           </h3>
           <p
             style={{ animationDelay: "900ms" }}
             className="animate-fade-up mt-5 max-w-[540px] text-base sm:text-lg leading-relaxed text-[#8892b0]"
           >
-            {personalInfo.shortBio}
+            {dict.hero.shortBio}
           </p>
           <div
             style={{ animationDelay: "1000ms" }}
@@ -562,7 +674,7 @@ export default function BrittanyV4Portfolio() {
               rel="noopener noreferrer"
               className="inline-block rounded-[4px] border border-[#64ffda] bg-transparent px-6 py-4 sm:px-7 sm:py-5 font-mono text-xs sm:text-sm leading-none text-[#64ffda] transition-all duration-200 hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[4px_4px_0_0_#64ffda]"
             >
-              Check out my resume!
+              {dict.hero.cta}
             </a>
           </div>
         </section>
