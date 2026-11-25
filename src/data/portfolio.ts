@@ -1,6 +1,5 @@
 // src/data/portfolio.ts
 const SUPABASE_URL = "https://kwcpnhcjuzfqxecrilcn.supabase.co/storage/v1/object/public/portfolio-assets";
-
 export const personalInfo = {
     name: "Demo Susanto.",
     logoLetter: "D",
@@ -8,13 +7,13 @@ export const personalInfo = {
     shortBio:
         "As a dedicated Frontend Engineer, I specialize in crafting innovative digital solutions that deliver exceptional user experiences. Currently, I’m looking for new opportunities to bring my expertise and passion for technology to impactful projects",
     email: "ssdemo099@gmail.com",
-    phone: "+6289667628681",
-    whatsappUrl: "https://wa.me/6289667628681?text=Hello%20Demo%20Susanto%2C%20I%20am%20interested%20in%20discussing%20job%20opportunities%20or%20a%20project.",
+    phone: "+6285899283303",
+    whatsappUrl: "https://wa.me/6285899283303?text=Hello%20Demo%20Susanto%2C%20I%20am%20interested%20in%20discussing%20job%20opportunities%20or%20a%20project.",
     location: "Meruyung, Depok City - West Java",
     linkedin: "https://www.linkedin.com/in/demo-susanto/",
     github: "https://github.com/demosusanto",
     instagram: "https://www.instagram.com/dsusanto_/",
-    cvUrl: "#",
+    cvUrl: `${SUPABASE_URL}/Demo%20Susanto%20-%20Frontend%20Engineer.pdf`,
     avatar: "/images/demosusanto.JPEG",
     recentSkills: [
         "JavaScript, HTML, CSS, Typescript",
@@ -38,20 +37,29 @@ export const experiences = [
             ja: "フルスタック開発者"
         },
         period: {
-            en: "July 2026 - Present",
-            id: "Juli 2026 - Sekarang",
-            ja: "2026年7月 - 現在"
+            en: "July 2026 - October 2026",
+            id: "Juli 2026 - Oktober 2026",
+            ja: "2026年7月 - 2026年10月"
         },
         url: "https://expatify.co.id/",
         duties: {
             en: [
-                "Shopify Development & Maintenance"
+                "Developed and customized responsive e-commerce storefronts and UI components using HTML, CSS, JavaScript, and Shopify Liquid for client brands including Liora Cosmetic, Footprints Tennis, Josephine Anni, Triple 3 Music, and Royal Baby Bikes.",
+                "Collaborated with UI/UX designers, project managers, and team members to translate design layouts into functional, mobile-friendly web pages and deliver project updates on schedule.",
+                "Handled ongoing frontend maintenance, troubleshooting, and debugging to resolve visual inconsistencies, responsive layout issues, and cross-browser compatibility bugs.",
+                "Integrated third-party services and storefront features while optimizing frontend code for faster load speed, performance, and maintainability."
             ],
             id: [
-                "Pengembangan & Pemeliharaan Shopify"
+                "Mengembangkan dan menyesuaikan etalase e-commerce responsif serta komponen UI menggunakan HTML, CSS, JavaScript, dan Shopify Liquid untuk berbagai merek klien, termasuk Liora Cosmetic, Footprints Tennis, Josephine Anni, Triple 3 Music, dan Royal Baby Bikes.",
+                "Berkolaborasi dengan desainer UI/UX, manajer proyek, dan anggota tim untuk menerjemahkan tata letak desain menjadi halaman web fungsional yang ramah seluler serta menyampaikan pembaruan proyek tepat waktu.",
+                "Menangani pemeliharaan frontend berkelanjutan, pemecahan masalah, dan debugging untuk menyelesaikan inkonsistensi visual, masalah tata letak responsif, serta bug kompatibilitas lintas browser.",
+                "Mengintegrasikan layanan pihak ketiga dan fitur etalase sambil mengoptimalkan kode frontend untuk kecepatan muat, performa, dan kemudahan pemeliharaan yang lebih baik."
             ],
             ja: [
-                "Shopifyの開発と保守"
+                "HTML、CSS、JavaScript、およびShopify Liquidを使用して、Liora Cosmetic、Footprints Tennis、Josephine Anni、Triple 3 Music、Royal Baby Bikesなどのクライアントブランド向けに、レスポンシブなECストアフロントとUIコンポーネントを開発・カスタマイズ。",
+                "UI/UXデザイナー、プロジェクトマネージャー、チームメンバーと連携し、デザインレイアウトを機能的でモバイル対応のWebページへと実装し、スケジュール通りにプロジェクトのアップデートを納品。",
+                "継続的なフロントエンドの保守、トラブルシューティング、デバッグを担当し、視覚的な不整合、レスポンシブレイアウトの課題、クロスブラウザ互換性のバグを解消。",
+                "サードパーティサービスやストアフロント機能を統合するとともに、読み込み速度、パフォーマンス、保守性を向上させるためにフロントエンドコードを最適化。"
             ]
         },
     },
@@ -707,14 +715,14 @@ export const certificates: Certificate[] = [
     {
         id: "1",
         title: {
-            en: "National Professional Certification Agency",
-            id: "Badan Nasional Sertifikasi Profesi",
-            ja: "国家職業認定局"
+            en: "",
+            id: "",
+            ja: ""
         },
         issuer: {
-            en: "BNSP",
-            id: "BNSP",
-            ja: "BNSP"
+            en: "",
+            id: "",
+            ja: ""
         },
         date: {
             en: "",
@@ -722,6 +730,102 @@ export const certificates: Certificate[] = [
             ja: ""
         },
         image: "/certificates/Sertifikat BNSP.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "2",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/BNSP SMK.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "3",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/TOEFL.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "4",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/Sertifikat 7.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "5",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/Sertifikat 8.jpg",
         description: {
             en: "",
             id: "",
