@@ -376,15 +376,15 @@ export const featuredProjects = [
             `${SUPABASE_URL}/catatuang/catat-uang-2.png`,
             `${SUPABASE_URL}/catatuang/catat-uang-3.png`,
         ],
-        tech: ["Flutter", "ReactJS", "React Vite", "Lucide React"],
+        tech: ["Flutter", "React.js", "React Vite", "Lucide React"],
         github: "",
         external: "https://catatuang.sikluswaktu.my.id/",
     },
     {
         title: {
-            en: "IRIIS - Integrated Ran Automatic Planning Tools",
-            id: "IRIIS - Integrated Ran Automatic Planning Tools",
-            ja: "IRIIS - 統合型RAN自動計画ツール"
+            en: "IRIIS",
+            id: "IRIIS",
+            ja: "IRIIS"
         },
         overline: {
             en: "Featured Project",
@@ -392,9 +392,9 @@ export const featuredProjects = [
             ja: "注目プロジェクト"
         },
         description: {
-            en: "An enterprise telecommunication dashboard built under Telkomsel for monitoring Network Elements, Physical Sites, and Coverage Population across regions, complete with interactive maps and City Cap & PRB Utilization stacked bar charts.",
-            id: "Dashboard telekomunikasi perusahaan yang dibangun di bawah Telkomsel untuk memantau Elemen Jaringan, Situs Fisik, dan Populasi Cakupan di seluruh wilayah, lengkap dengan peta interaktif dan diagram batang bertumpuk untuk City Cap & PRB Utilization.",
-            ja: "Telkomsel傘下で構築されたエンタープライズ通信ダッシュボード。地域全体のネットワーク要素、物理サイト、カバレッジ人口を監視し、インタラクティブなマップや「City Cap」および「PRB Utilization」の積み上げ棒グラフを完備しています。"
+            en: "An enterprise telecommunication dashboard and Integrated RAN Automatic Planning Tools built under Telkomsel for monitoring Network Elements, Physical Sites, and Coverage Population across regions, complete with interactive maps and City Cap & PRB Utilization stacked bar charts.",
+            id: "Dashboard telekomunikasi perusahaan dan Integrated RAN Automatic Planning Tools yang dibangun di bawah Telkomsel untuk memantau Elemen Jaringan, Situs Fisik, dan Populasi Cakupan di seluruh wilayah, lengkap dengan peta interaktif serta diagram batang bertumpuk untuk City Cap & PRB Utilization.",
+            ja: "Telkomsel傘下で構築されたエンタープライズ通信ダッシュボードおよびIntegrated RAN Automatic Planning Tools。地域全体のネットワーク要素、物理サイト、カバレッジ人口を監視し、インタラクティブなマップや「City Cap」および「PRB Utilization」の積み上げ棒グラフを完備しています。",
         },
         images: [
             `${SUPABASE_URL}/iriis/Home.png`,
@@ -411,7 +411,7 @@ export const featuredProjects = [
             `${SUPABASE_URL}/iriis/Upload.png`,
             `${SUPABASE_URL}/iriis/Upload2.png`
         ],
-        tech: ["ReactJS", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
+        tech: ["React.js", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
         github: "",
         external: "",
     },
@@ -453,9 +453,114 @@ export const featuredProjects = [
             `${SUPABASE_URL}/brofist/NSAM_CRUD.png`,
             `${SUPABASE_URL}/brofist/NSAM-Dashboard.png`
         ],
-        tech: ["ReactJS", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
+        tech: ["React.js", "Redux", "Highcharts", "REST API", "PHP Phalcon"],
         github: "",
         external: "",
+    },
+    {
+        title: {
+            en: "Liora Cosmetic",
+            id: "Liora Cosmetic",
+            ja: "Liora Cosmetic",
+        },
+        overline: {
+            en: "Featured Project",
+            id: "Proyek Pilihan",
+            ja: "注目プロジェクト",
+        },
+        description: {
+            en: "A custom Shopify e-commerce storefront developed under Expatify for Liora Cosmetic, a beauty and personal care brand. Built with Shopify Liquid, JavaScript, and Tailwind CSS, featuring responsive product catalogs, custom UI components, and optimized storefront performance across devices.",
+            id: "Etalase e-commerce Shopify kustom yang dikembangkan bersama Expatify untuk Liora Cosmetic, merek kecantikan dan perawatan tubuh. Dibangun menggunakan Shopify Liquid, JavaScript, dan Tailwind CSS dengan katalog produk responsif, komponen UI kustom, serta performa toko yang dioptimalkan di berbagai perangkat.",
+            ja: "Expatify在籍時に開発した、美容・パーソナルケアブランド「Liora Cosmetic」向けのカスタムShopify ECストアフロント。Shopify Liquid、JavaScript、Tailwind CSSで構築し、レスポンシブな商品カタログ、カスタムUIコンポーネント、各種デバイスでのパフォーマンス最適化を実装しました。",
+        },
+        images: Array.from({ length: 25 }, (_, i) => `${SUPABASE_URL}/lioracosmetic/${i + 1}.png`),
+        tech: ["Shopify Liquid", "Node.js", "JavaScript", "Tailwind CSS"],
+        github: "",
+        external: "https://lioracosmetic.co.id/",
+    },
+    {
+        title: {
+            en: "Footprints Tennis",
+            id: "Footprints Tennis",
+            ja: "Footprints Tennis",
+        },
+        overline: {
+            en: "Featured Project",
+            id: "Proyek Pilihan",
+            ja: "注目プロジェクト",
+        },
+        description: {
+            en: "A custom Shopify e-commerce storefront developed under Expatify for Footprints Tennis, a specialty retail and service destination for tennis, padel, and pickleball gear. Built with Shopify Liquid, JavaScript, and Vanilla CSS, featuring interactive touch-enabled hero sliders, custom cart interactions, and mobile-optimized product pages.",
+            id: "Etalase e-commerce Shopify kustom yang dikembangkan bersama Expatify untuk Footprints Tennis, destinasi perlengkapan dan layanan khusus tenis, padel, serta pickleball. Dibangun menggunakan Shopify Liquid, JavaScript, dan Vanilla CSS, dilengkapi hero slider interaktif ramah sentuh, kustomisasi fitur keranjang, serta halaman produk yang dioptimalkan untuk perangkat seluler.",
+            ja: "Expatify在籍時に開発した、テニス・パデル・ピックルボール用品および専門サービスを提供する「Footprints Tennis」向けのカスタムShopify ECストアフロント。Shopify Liquid、JavaScript、Vanilla CSSで構築し、タッチ操作対応のヒーロースライダー、カスタムカート機能、モバイル最適化された商品ページを実装しました。",
+        },
+        images: Array.from({ length: 33 }, (_, i) => `${SUPABASE_URL}/footprints-tennis/${i + 1}.png`),
+        tech: ["Shopify Liquid", "Node.js", "JavaScript", "Vanilla CSS"],
+        github: "",
+        external: "https://footprints-tennis.com/",
+    },
+    {
+        title: {
+            en: "Royal Baby Bikes",
+            id: "Royal Baby Bikes",
+            ja: "Royal Baby Bikes",
+        },
+        overline: {
+            en: "Featured Project",
+            id: "Proyek Pilihan",
+            ja: "注目プロジェクト",
+        },
+        description: {
+            en: "A custom Shopify e-commerce storefront developed under Expatify for Royal Baby Bikes, a specialized kids' bicycle and cycling accessories brand. Built with Shopify Liquid, JavaScript, and Tailwind CSS, featuring an interactive bike finder, product comparison widgets, a dealer locator, and customized cart and search interfaces.",
+            id: "Etalase e-commerce Shopify kustom yang dikembangkan bersama Expatify untuk Royal Baby Bikes, merek khusus sepeda anak dan aksesori bersepeda. Dibangun menggunakan Shopify Liquid, JavaScript, dan Tailwind CSS, dilengkapi fitur pencari sepeda interaktif, widget perbandingan produk, pencari dealer, serta antarmuka keranjang dan pencarian yang dikustomisasi.",
+            ja: "Expatify在籍時に開発した、子供用自転車およびサイクリングアクセサリー専門ブランド「Royal Baby Bikes」向けのカスタムShopify ECストアフロント。Shopify Liquid、JavaScript、Tailwind CSSで構築し、インタラクティブな自転車診断機能、製品比較ウィジェット、ディーラー検索、カスタマイズされたカートおよび検索UIを実装しました。",
+        },
+        images: Array.from({ length: 26 }, (_, i) => `${SUPABASE_URL}/royal-baby-bikes/${i + 1}.png`),
+        tech: ["Shopify Liquid", "Node.js", "JavaScript", "Tailwind CSS"],
+        github: "",
+        external: "https://royal-baby-bikes-qvrqds10.myshopify.com/",
+    },
+    {
+        title: {
+            en: "Triple 3 Music",
+            id: "Triple 3 Music",
+            ja: "Triple 3 Music",
+        },
+        overline: {
+            en: "Featured Project",
+            id: "Proyek Pilihan",
+            ja: "注目プロジェクト",
+        },
+        description: {
+            en: "A custom Shopify e-commerce storefront developed and maintained under Expatify for Triple 3 Music, a retail store for musical instruments, DJ gear, and audio equipment. Built with Shopify Liquid, JavaScript, and Vanilla CSS, featuring custom product sharing modals, responsive product detail pages, and ongoing frontend refinements for seamless shopping across devices.",
+            id: "Etalase e-commerce Shopify kustom yang dikembangkan dan dikelola bersama Expatify untuk Triple 3 Music, toko ritel alat musik, perlengkapan DJ, dan perangkat audio. Dibangun menggunakan Shopify Liquid, JavaScript, dan Vanilla CSS, dilengkapi modal berbagi produk kustom, halaman detail produk yang responsif, serta penyempurnaan frontend berkelanjutan untuk pengalaman belanja yang lancar di berbagai perangkat.",
+            ja: "Expatify在籍時に開発・保守を担当した、楽器・DJ機材・オーディオ機器の専門店「Triple 3 Music」向けのカスタムShopify ECストアフロント。Shopify Liquid、JavaScript、Vanilla CSSで構築し、カスタム商品シェアモーダル、レスポンシブな商品詳細ページ、各種デバイスで快適に利用できるフロントエンド改善を実装しました。",
+        },
+        images: Array.from({ length: 10 }, (_, i) => `${SUPABASE_URL}/triple3-music/${i + 1}.png`),
+        tech: ["Shopify Liquid", "Node.js", "JavaScript", "Vanilla CSS"],
+        github: "",
+        external: "https://triple3music.com/",
+    },
+    {
+        title: {
+            en: "Josephine Anni",
+            id: "Josephine Anni",
+            ja: "Josephine Anni",
+        },
+        overline: {
+            en: "Featured Project",
+            id: "Proyek Pilihan",
+            ja: "注目プロジェクト",
+        },
+        description: {
+            en: "A custom Shopify e-commerce storefront developed and maintained under Expatify for Josephine Anni, a contemporary women's fashion brand. Built with Shopify Liquid, JavaScript, and Vanilla CSS, featuring minimalist collection layouts, customized theme sections, wishlist functionality, and refined responsive styling across devices.",
+            id: "Etalase e-commerce Shopify kustom yang dikembangkan dan dikelola bersama Expatify untuk Josephine Anni, merek fesyen wanita kontemporer. Dibangun menggunakan Shopify Liquid, JavaScript, dan Vanilla CSS dengan tata letak koleksi minimalis, kustomisasi section tema, fitur wishlist, serta penyempurnaan tampilan responsif di berbagai perangkat.",
+            ja: "Expatify在籍時に開発・保守を担当した、コンテンポラリーなウィメンズファッションブランド「Josephine Anni」向けのカスタムShopify ECストアフロント。Shopify Liquid、JavaScript、Vanilla CSSで構築し、ミニマルなコレクションレイアウト、テーマセクションのカスタマイズ、ウィッシュリスト機能、各種デバイス向けのレスポンシブ調整を実装しました。",
+        },
+        images: Array.from({ length: 11 }, (_, i) => `${SUPABASE_URL}/josephineanni/${i + 1}.png`),
+        tech: ["Shopify Liquid", "Node.js", "JavaScript", "Vanilla CSS"],
+        github: "",
+        external: "https://www.josephineanni.com/",
     },
 ];
 
@@ -552,7 +657,7 @@ export const otherProjects: OtherProject[] = [
             id: "Dashboard admin manajemen armada untuk PT Astra Honda Motor yang menampilkan pemetaan armada GPS real-time, ringkasan sepeda aktif/tidak aktif, peringatan geofence & kecepatan, dan grafik pemanfaatan harian/mingguan.",
             ja: "PT Astra Honda Motor向けのフリート管理用管理ダッシュボード。リアルタイムGPSフリートマッピング、アクティブ/非アクティブな自転車の概要、ジオフェンスと速度の警告、および毎日/毎週の利用状況チャートを備えています。"
         },
-        tech: ["AngularJS", "Spring Boot", "REST API", "IoT"],
+        tech: ["Angular.js", "Spring Boot", "REST API", "IoT"],
         github: "",
         external: "",
     },
@@ -826,6 +931,126 @@ export const certificates: Certificate[] = [
             ja: ""
         },
         image: "/certificates/Sertifikat 8.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "6",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/DSF.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "7",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/Product Designer.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "8",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/Sigmatech Webinar.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "9",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/Mastering Figma.jpg",
+        description: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+    },
+    {
+        id: "10",
+        title: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        issuer: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        date: {
+            en: "",
+            id: "",
+            ja: ""
+        },
+        image: "/certificates/UI Introduction.jpg",
         description: {
             en: "",
             id: "",
