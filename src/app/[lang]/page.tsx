@@ -1,7 +1,7 @@
 // src/app/page.tsx
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
 import Image from "next/image";
 // Tambahkan 2 baris ini:
 import { useParams, usePathname, useRouter } from "next/navigation";
@@ -15,6 +15,20 @@ import {
 } from "@/data/portfolio";
 import ProjectModal from "@/components/ProjectModal";
 import CertificateSlider from "@/components/CertificateSlider";
+import FeaturedProjectModal, { getProjectSlug } from "@/components/FeaturedProjectModal";
+
+// Subscribe ke perubahan URL (Back/Forward + pushState/replaceState manual) untuk modal project
+const URL_CHANGE_EVENT = "project-modal-urlchange";
+function subscribeToUrl(callback: () => void) {
+  window.addEventListener("popstate", callback);
+  window.addEventListener(URL_CHANGE_EVENT, callback);
+  return () => {
+    window.removeEventListener("popstate", callback);
+    window.removeEventListener(URL_CHANGE_EVENT, callback);
+  };
+}
+const getUrlSearch = () => window.location.search;
+const getServerUrlSearch = () => "";
 
 // Komponen pembungkus untuk animasi Fade-Up saat elemen masuk ke viewport
 function RevealOnScroll({
@@ -64,7 +78,7 @@ function RevealOnScroll({
   );
 }
 
-function ProjectSlider({ images = [], altText, isOdd = false }: { images: string[]; altText: string; isOdd?: boolean }) {
+function ProjectSlider({ images = [], altText, isOdd = false, onOpen }: { images: string[]; altText: string; isOdd?: boolean; onOpen?: (index: number) => void }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -90,7 +104,19 @@ function ProjectSlider({ images = [], altText, isOdd = false }: { images: string
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-[4px] bg-transparent">
+      <div
+        className={`relative h-full w-full overflow-hidden rounded-[4px] bg-transparent ${onOpen ? "cursor-zoom-in" : ""}`}
+        onClick={() => onOpen?.(currentIndex)}
+        role={onOpen ? "button" : undefined}
+        tabIndex={onOpen ? 0 : undefined}
+        aria-label={onOpen ? `Open gallery: ${altText}` : undefined}
+        onKeyDown={(e) => {
+          if (onOpen && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            onOpen(currentIndex);
+          }
+        }}
+      >
         {images.map((img, idx) => (
           <div
             key={idx}
@@ -148,12 +174,54 @@ export default function BrittanyV4Portfolio() {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [showMore, setShowMore] = useState(false);
+  const [showMoreFeatured, setShowMoreFeatured] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   const [scrolledToTop, setScrolledToTop] = useState(true);
   const spotlightRef = useRef<HTMLDivElement>(null);
   const [cursorVisible, setCursorVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<OtherProject | null>(null);
+
+  // === FEATURED PROJECT MODAL + DIRECT LINK (?project=slug&slide=n) ===
+  // State modal diturunkan langsung dari URL query, sehingga direct link, Back/Forward, & refresh otomatis bekerja
+  const urlSearch = useSyncExternalStore(subscribeToUrl, getUrlSearch, getServerUrlSearch);
+  const featuredModal = React.useMemo(() => {
+    const sp = new URLSearchParams(urlSearch);
+    const slug = sp.get("project");
+    if (!slug || !featuredProjects.some((p) => getProjectSlug(p) === slug)) return null;
+    const slide = parseInt(sp.get("slide") || "1", 10);
+    return { slug, slide: Number.isNaN(slide) ? 0 : Math.max(slide - 1, 0) };
+  }, [urlSearch]);
+  const pushedByModal = useRef(false);
+
+  const buildModalUrl = (slug: string, slide: number) =>
+    `${window.location.pathname}?project=${slug}&slide=${slide + 1}${window.location.hash || "#projects"}`;
+
+  const openFeaturedModal = (slug: string, slide = 0) => {
+    window.history.pushState(null, "", buildModalUrl(slug, slide));
+    pushedByModal.current = true;
+    window.dispatchEvent(new Event(URL_CHANGE_EVENT));
+  };
+
+  const changeFeaturedSlide = (slide: number) => {
+    if (!featuredModal) return;
+    window.history.replaceState(null, "", buildModalUrl(featuredModal.slug, slide));
+    window.dispatchEvent(new Event(URL_CHANGE_EVENT));
+  };
+
+  const closeFeaturedModal = useCallback(() => {
+    if (pushedByModal.current) {
+      pushedByModal.current = false;
+      window.history.back(); // popstate -> modal tertutup
+    } else {
+      window.history.replaceState(null, "", `${window.location.pathname}${window.location.hash}`);
+      window.dispatchEvent(new Event(URL_CHANGE_EVENT));
+    }
+  }, []);
+
+  const activeFeaturedProject = featuredModal
+    ? featuredProjects.find((p) => getProjectSlug(p) === featuredModal.slug) ?? null
+    : null;
 
   // 1. Tambahkan ref untuk area dropdown mobile
   const langMenuRef = useRef<HTMLDivElement>(null);
@@ -267,6 +335,11 @@ export default function BrittanyV4Portfolio() {
   const displayedOtherProjects = showMore
     ? otherProjects
     : otherProjects.slice(0, 6);
+
+  const FEATURED_INITIAL_COUNT = 4;
+  const displayedFeaturedProjects = showMoreFeatured
+    ? featuredProjects
+    : featuredProjects.slice(0, FEATURED_INITIAL_COUNT);
 
   // Tampilkan Splash Screen Loader
   if (isLoading) {
@@ -810,7 +883,7 @@ export default function BrittanyV4Portfolio() {
           </RevealOnScroll>
 
           <ul className="m-0 p-0 list-none space-y-12 sm:space-y-16 md:space-y-24">
-            {featuredProjects.map((project, idx) => {
+            {displayedFeaturedProjects.map((project, idx) => {
               const isOdd = idx % 2 !== 0;
               // Ekstrak string murni (bahasa Inggris) untuk key dan alt image
               const projectTitle = project.title['en'];
@@ -823,7 +896,12 @@ export default function BrittanyV4Portfolio() {
                       bg-[#112240] md:bg-[#64ffda] md:group-hover:bg-transparent ${isOdd ? "md:col-start-6" : "md:col-start-1"
                         }`}
                     >
-                      <ProjectSlider images={project.images} altText={projectTitle} isOdd={isOdd} />
+                      <ProjectSlider
+                        images={project.images}
+                        altText={projectTitle}
+                        isOdd={isOdd}
+                        onOpen={(i) => openFeaturedModal(getProjectSlug(project), i)}
+                      />
                     </div>
                     <div
                       className={`relative z-10 flex flex-col justify-center w-full text-left items-start md:col-span-7 md:row-start-1 md:z-20 md:p-0 ${isOdd
@@ -867,6 +945,13 @@ export default function BrittanyV4Portfolio() {
                         className={`mt-2 flex items-center gap-3 text-[#ccd6f6] justify-start ${isOdd ? "md:justify-start" : "md:justify-end"
                           }`}
                       >
+                        <button
+                          type="button"
+                          onClick={() => openFeaturedModal(getProjectSlug(project), 0)}
+                          className="mr-1 rounded-[4px] border border-[#64ffda] px-3 py-1.5 font-mono text-xs text-[#64ffda] transition-colors hover:bg-[#64ffda]/10 md:hidden"
+                        >
+                          {lang === "id" ? "Lihat Galeri" : lang === "ja" ? "ギャラリーを見る" : "View Gallery"} ({project.images.length})
+                        </button>
                         {project.github && (
                           <a
                             href={project.github}
@@ -922,6 +1007,23 @@ export default function BrittanyV4Portfolio() {
               );
             })}
           </ul>
+
+          {featuredProjects.length > FEATURED_INITIAL_COUNT && (
+            <div className="mt-12 flex justify-center sm:mt-16">
+              <button
+                type="button"
+                onClick={() => {
+                  if (showMoreFeatured) {
+                    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+                  }
+                  setShowMoreFeatured(!showMoreFeatured);
+                }}
+                className="rounded-[4px] border border-[#64ffda] bg-transparent px-7 py-4 font-mono text-xs sm:text-sm leading-none text-[#64ffda] transition-all duration-200 hover:-translate-x-[4px] hover:-translate-y-[4px] hover:shadow-[4px_4px_0_0_#64ffda]"
+              >
+                {showMoreFeatured ? dict.otherProjects.showLess : dict.otherProjects.showMore}
+              </button>
+            </div>
+          )}
         </section>
 
         {/* 5. OTHER NOTEWORTHY PROJECTS */}
@@ -1036,6 +1138,14 @@ export default function BrittanyV4Portfolio() {
             project={selectedProject}
             onClose={() => setSelectedProject(null)}
             lang={lang}
+          />
+
+          <FeaturedProjectModal
+            project={activeFeaturedProject}
+            slide={featuredModal?.slide ?? 0}
+            lang={lang}
+            onSlideChange={changeFeaturedSlide}
+            onClose={closeFeaturedModal}
           />
         </section>
 
